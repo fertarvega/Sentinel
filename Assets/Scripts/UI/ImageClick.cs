@@ -40,9 +40,7 @@ public class ImageClick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler,
         // Cast the ray and check if it hits an object
         if (Physics.Raycast(ray, out hit))
         {
-            // Get the world position of the hit point
-            Vector3 worldPos = hit.point;
-
+            Vector3 worldPos = LevelGrid.Instance.GetWorldPosition(LevelGrid.Instance.GetGridPosition(hit.point));
             // Print the world position of the mouse
             // Debug.Log("Mouse position: " + worldPos);
             Instantiate(enemyPrefab, worldPos, Quaternion.identity);

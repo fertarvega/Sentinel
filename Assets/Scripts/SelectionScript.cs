@@ -8,7 +8,7 @@ public class SelectionScript : MonoBehaviour
     private Vector3 currentPos;
     private bool isSelecting;
     private List<Transform> selectedTransforms = new List<Transform>();
-    public Camera camera;
+    public Camera mainCamera;
 
     private void Start()
     {
@@ -55,8 +55,8 @@ public class SelectionScript : MonoBehaviour
 
     private void SelectObjects()
     {
-        Vector3 start = camera.ScreenToWorldPoint(startPos);
-        Vector3 end = camera.ScreenToWorldPoint(currentPos);
+        Vector3 start = mainCamera.ScreenToWorldPoint(startPos);
+        Vector3 end = mainCamera.ScreenToWorldPoint(currentPos);
 
         // Get all objects within selection area
         Collider2D[] colliders = Physics2D.OverlapAreaAll(start, end);

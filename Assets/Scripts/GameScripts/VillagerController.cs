@@ -12,16 +12,16 @@ public class VillagerController : MonoBehaviour
     // Original color of the villager
     private Color originalColor;
 
-    private Renderer renderer;
+    private Renderer villageRenderer;
 
     private void Start()
     {
-        renderer = GetComponent<Renderer>();
-        originalColor = renderer.material.color;
+        villageRenderer = GetComponent<Renderer>();
+        originalColor = villageRenderer.material.color;
     }
     private void Update()
     {
-        renderer.material.color = Selected ? selectedColor : originalColor;
+        villageRenderer.material.color = Selected ? selectedColor : originalColor;
         if (Selected)
         {
             // Move the villager to the target position on mouse click
