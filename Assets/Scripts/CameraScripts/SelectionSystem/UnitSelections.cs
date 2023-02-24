@@ -16,7 +16,6 @@ public class UnitSelections : MonoBehaviour
     }
     public void ClickSelect(GameObject unitToAdd)
     {
-        Debug.Log(unitList);
         DeselectAll();
         Select(unitToAdd);
     }
