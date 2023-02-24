@@ -16,9 +16,10 @@ public class SpawnEnemys : MonoBehaviour
 
         for (int i = 0; i < numberOfEnemies; i++)
         {
-            Vector3 spawnPosition = transform.position + Random.insideUnitSphere * spawnRadius;
+            // + Random.insideUnitSphere * spawnRadius
+            Vector3 spawnPosition = transform.position;
             
-            spawnPosition.y = Terrain.activeTerrain.SampleHeight(spawnPosition);
+            // spawnPosition.y = Terrain.activeTerrain.SampleHeight(spawnPosition);
             
             GameObject enemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
             

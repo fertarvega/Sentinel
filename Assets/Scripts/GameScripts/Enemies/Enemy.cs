@@ -30,7 +30,7 @@ public class Enemy : MonoBehaviour
         // }
         // else
         // {
-        //     navMeshAgent.SetDestination(yendo ? Destiny.position : Origin);
+            navMeshAgent.SetDestination(yendo ? Destiny.position : Origin);
         // }
     }
 
