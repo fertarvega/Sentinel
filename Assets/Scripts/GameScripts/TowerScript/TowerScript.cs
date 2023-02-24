@@ -19,12 +19,12 @@ public class TowerScript : MonoBehaviour
 
     private void Start()
     {
-        attack_reload = attack_ratio;
+        // attack_reload = attack_ratio;
     }
 
     void Update()
     {
-        checkEnemys();
+        // checkEnemys();
         // if(NearEnemy != null)
         // {
         //     AttackEnemy(NearEnemy);

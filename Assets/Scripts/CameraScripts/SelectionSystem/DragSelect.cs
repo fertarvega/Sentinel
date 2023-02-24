@@ -10,7 +10,7 @@ public class DragSelect : MonoBehaviour
     private Vector3 mousePositionEnd;
     public RectTransform selectionBox;
 
-    public ImageClick UiClicking;
+    public CreateTowers UiClicking;
 
     void Update(){
         if(Input.GetMouseButtonDown(0) ){
