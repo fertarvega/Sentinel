@@ -532,7 +532,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectionBox: {fileID: 1702620099}
-  UiClicking: {fileID: 721955715}
+  UiClickingDefenseTower: {fileID: 721955715}
+  UiClickingResourceTower: {fileID: 159002425}
 --- !u!1 &670831100
 GameObject:
   m_ObjectHideFlags: 0

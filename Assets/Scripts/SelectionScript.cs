@@ -30,7 +30,6 @@ public class SelectionScript : MonoBehaviour
 
     private void Update()
     {
-        print(selectedTransforms.Count);
         // Check for left mouse button down
         if (Input.GetMouseButtonDown(0))
         {

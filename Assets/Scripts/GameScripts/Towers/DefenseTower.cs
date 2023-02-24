@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TowerScript : MonoBehaviour
+public class DefenseTower : MonoBehaviour
 {
     public int attack_ratio = 100;
 

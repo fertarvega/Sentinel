@@ -5,12 +5,14 @@ using UnityEngine;
 public class Unit : MonoBehaviour
 {
     private GridPosition gridPosition;
-    private TowerScript tower;
+    private DefenseTower defenseTower;
+    private ResourceTower resourceTower;
 
     private void Start(){
         UnitSelections.Instance.unitList.Add(this.gameObject);
         gridPosition = LevelGrid.Instance.GetGridPosition(transform.position);
-        tower = GetComponent<TowerScript>();
+        defenseTower = GetComponent<DefenseTower>();
+        resourceTower = GetComponent<ResourceTower>();
     }
 
     private void OnDestroy() {
@@ -21,7 +23,11 @@ public class Unit : MonoBehaviour
         return gridPosition;
     }
     // Here need to be the scripts depending on what kind of unit is
-    public TowerScript GetTower(){
-        return tower;
+    public DefenseTower GetDefenseTower(){
+        return defenseTower;
+    }
+
+    public ResourceTower GetResourceTower(){
+        return resourceTower;
     }
 }
