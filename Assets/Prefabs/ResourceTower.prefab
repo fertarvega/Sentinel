@@ -112,9 +112,9 @@ GameObject:
   - component: {fileID: 195788187633347921}
   - component: {fileID: 1928730733391949978}
   - component: {fileID: 1928730733391949958}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ResourceTower
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

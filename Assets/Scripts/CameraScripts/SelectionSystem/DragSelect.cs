@@ -10,7 +10,8 @@ public class DragSelect : MonoBehaviour
     private Vector3 mousePositionEnd;
     public RectTransform selectionBox;
 
-    public CreateTowers UiClicking;
+    [SerializeField] private CreateTowers UiClickingDefenseTower;
+    [SerializeField] private CreateTowers UiClickingResourceTower;
 
     void Update(){
         if(Input.GetMouseButtonDown(0) ){
@@ -18,7 +19,7 @@ public class DragSelect : MonoBehaviour
             isDragSelect = false;
         }
 
-        if(Input.GetMouseButton(0)&& !UiClicking.isHolding){
+        if(Input.GetMouseButton(0) && !UiClickingDefenseTower.isHolding && !UiClickingResourceTower.isHolding){
             if(!isDragSelect && (mousePositionInitial - Input.mousePosition).magnitude > 30){
                 isDragSelect = true;
             }
