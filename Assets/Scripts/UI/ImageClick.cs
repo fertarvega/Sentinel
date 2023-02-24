@@ -9,6 +9,7 @@ public class ImageClick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler,
     private Camera mainCamera;
     private bool isHovering = false;
     [SerializeField] private Unit unit;
+    private Unit unitHovering;
 
     void Start(){
         mainCamera = Camera.main;
@@ -25,8 +26,9 @@ public class ImageClick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler,
     }
 
     public void OnPointerDown(PointerEventData eventData)
-    {
+    {   
         isHolding = true;
+        unitHovering = Instantiate(unit, new Vector3(-100,-100,0), Quaternion.identity);
     }
 
     public void OnPointerUp(PointerEventData eventData)
@@ -48,11 +50,20 @@ public class ImageClick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler,
                 Unit newUnit = Instantiate(unit, worldPos, Quaternion.identity);
                 LevelGrid.Instance.AddUnitAtGridPosition(gridPosition, newUnit);
             }
+
         }
         
     }
     
     private void Update(){
-
+        if(isHolding){
+            Vector3 mouse = Input.mousePosition;
+            Ray ray = Camera.main.ScreenPointToRay(mouse);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit))
+            {
+                unitHovering.transform.position = new Vector3(hit.point.x, 0, hit.point.z);
+            }
+        } else if(unitHovering && !isHolding) Destroy(unitHovering.gameObject);
     }
 }
