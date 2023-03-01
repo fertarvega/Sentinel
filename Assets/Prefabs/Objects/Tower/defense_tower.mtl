@@ -1,0 +1,8 @@
+# Made in Blockbench 4.6.4
+newmtl m_32b3429a-b0f9-23f6-e57d-8cd1dc218aa5
+map_Kd defense_tower_base.png 
+newmtl m_aee3268f-20b0-c85d-3ecb-496fcb7da281
+map_Kd defense_tower_stand.png 
+newmtl m_21525783-3df5-1833-c827-11f02ca08eda
+map_Kd defense_tower_roof.png 
+newmtl none

@@ -41,6 +41,7 @@ public class CreateTowers : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
             GridPosition gridPosition = LevelGrid.Instance.GetGridPosition(hit.point);
             if(LevelGrid.Instance.IsValidGridPosition(gridPosition) && !LevelGrid.Instance.HasAnyUnitOnGridPosition(gridPosition)){
                 Vector3 worldPos = LevelGrid.Instance.GetWorldPosition(gridPosition);
+                worldPos = new Vector3(worldPos.x, 0.5f, worldPos.z);
                 Unit newUnit = Instantiate(unit, worldPos, Quaternion.identity);
                 LevelGrid.Instance.AddUnitAtGridPosition(gridPosition, newUnit);
             }
