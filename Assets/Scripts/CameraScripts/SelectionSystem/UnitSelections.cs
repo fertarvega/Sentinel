@@ -19,15 +19,16 @@ public class UnitSelections : MonoBehaviour
     }
 
     public void Update(){
-        if(unitSelected.Count == 0){
-            foreach(Button button in buttonList){
-                button.interactable = false;
-            }
-        } else {
-            foreach(Button button in buttonList){
-                button.interactable = true;
-            }
-        }
+        // print(unitSelected.Count);
+        // if(unitSelected.Count == 0){
+        //     foreach(Button button in buttonList){
+        //         button.interactable = false;
+        //     }
+        // } else {
+        //     foreach(Button button in buttonList){
+        //         button.interactable = true;
+        //     }
+        // }
     }
 
     public void ClickSelect(GameObject unitToAdd)
@@ -53,17 +54,20 @@ public class UnitSelections : MonoBehaviour
     }
     public void Deselect(GameObject unitToDeselect)
     {
-        unitSelected.Remove(unitToDeselect);
-        unitToDeselect.transform.GetChild(0).gameObject.SetActive(false);
+        // unitSelected.Remove(unitToDeselect);
+        // unitToDeselect.transform.GetChild(0).gameObject.SetActive(false);
     }
 
     public void DeselectAll()
     {
-        unitSelected.Clear();
-        foreach( var unitToDeselect in unitList)
-        {
-            unitToDeselect.transform.GetChild(0).gameObject.SetActive(false);
-        }
+        // unitSelected.Clear();
+        // foreach( var unitToDeselect in unitList)
+        // {
+        //     unitToDeselect.transform.GetChild(0).gameObject.SetActive(false);
+        // }
+
+        // El de arriba
+
 
         // foreach( var unitToDeselect in unitList){
         //     for (int i = 0; i < unitToDeselect.transform.childCount; i++)
