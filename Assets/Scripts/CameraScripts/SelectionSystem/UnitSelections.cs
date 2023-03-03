@@ -54,20 +54,17 @@ public class UnitSelections : MonoBehaviour
     }
     public void Deselect(GameObject unitToDeselect)
     {
-        // unitSelected.Remove(unitToDeselect);
-        // unitToDeselect.transform.GetChild(0).gameObject.SetActive(false);
+        unitSelected.Remove(unitToDeselect);
+        unitToDeselect.transform.GetChild(0).gameObject.SetActive(false);
     }
 
     public void DeselectAll()
     {
-        // unitSelected.Clear();
-        // foreach( var unitToDeselect in unitList)
-        // {
-        //     unitToDeselect.transform.GetChild(0).gameObject.SetActive(false);
-        // }
-
-        // El de arriba
-
+        unitSelected.Clear();
+        foreach( var unitToDeselect in unitList)
+        {
+            unitToDeselect.transform.GetChild(0).gameObject.SetActive(false);
+        }
 
         // foreach( var unitToDeselect in unitList){
         //     for (int i = 0; i < unitToDeselect.transform.childCount; i++)
