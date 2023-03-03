@@ -8,7 +8,9 @@ public class LevelGrid : MonoBehaviour
 
     private GridSystem gridSystem;
     [SerializeField] private Transform gridDebugObjectPrefab;
-
+    public int width = 10;
+    public int heigth = 10;
+    public float cellSize = 2f;
     private void Awake() {
         if (Instance != null)
         {
@@ -18,7 +20,8 @@ public class LevelGrid : MonoBehaviour
         }
         Instance = this;
 
-        gridSystem = new GridSystem(10, 10, 2f);
+        gridSystem = new GridSystem(width, heigth, cellSize);
+        
         gridSystem.CreateDebugObjects(gridDebugObjectPrefab);        
     }
 
@@ -34,12 +37,16 @@ public class LevelGrid : MonoBehaviour
 
     public void RemoveUnitAtGridPosition(GridPosition gridPosition, Unit unit){
         GridObject gridObject = gridSystem.GetGridObject(gridPosition);
-        gridObject.RemoveUnit(unit);
+        // gridObject.RemoveUnit(unit);
+        // Destroy(unit);
     }
 
     public void UnitMoveGridPosition(Unit unit, GridPosition oldGridPosition, GridPosition newGridPosition){
-        RemoveUnitAtGridPosition(oldGridPosition, unit);
-        AddUnitAtGridPosition(newGridPosition, unit);
+        // Destroy(unit);
+        // RemoveUnitAtGridPosition(oldGridPosition, unit);
+        // AddUnitAtGridPosition(newGridPosition, unit);
+        // Vector3 OldPos = unit.GetComponent<Transform>().position;
+        // unit.GetComponent<Transform>().position = new Vector3(newGridPosition.x, OldPos.y, newGridPosition.z );
     }
 
     public GridPosition GetGridPosition(Vector3 worldPosition) => gridSystem.GetGridPosition(worldPosition);
@@ -51,6 +58,8 @@ public class LevelGrid : MonoBehaviour
     public int GetWidth() => gridSystem.GetWidth();
 
     public int GetHeight() => gridSystem.GetHeight();
+
+    public float GetCellSize() => gridSystem.GetCellSize();
 
     public bool HasAnyUnitOnGridPosition(GridPosition gridPosition){
         GridObject gridObject = gridSystem.GetGridObject(gridPosition);
