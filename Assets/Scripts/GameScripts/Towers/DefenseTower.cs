@@ -16,6 +16,7 @@ public class DefenseTower : MonoBehaviour
 
     private Enemy NearEnemy;
     private int attack_reload;
+    [SerializeField] public Wizard[] spotsList; 
 
     private void Start()
     {

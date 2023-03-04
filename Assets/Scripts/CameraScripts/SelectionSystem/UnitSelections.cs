@@ -20,15 +20,15 @@ public class UnitSelections : MonoBehaviour
 
     public void Update(){
         // print(unitSelected.Count);
-        // if(unitSelected.Count == 0){
-        //     foreach(Button button in buttonList){
-        //         button.interactable = false;
-        //     }
-        // } else {
-        //     foreach(Button button in buttonList){
-        //         button.interactable = true;
-        //     }
-        // }
+        if(unitSelected.Count == 0){
+            foreach(Button button in buttonList){
+                button.interactable = false;
+            }
+        } else {
+            foreach(Button button in buttonList){
+                button.interactable = true;
+            }
+        }
     }
 
     public void ClickSelect(GameObject unitToAdd)
@@ -76,6 +76,10 @@ public class UnitSelections : MonoBehaviour
         //         Debug.Log(child.name);
         //     }
         // }
+    }
+
+    public List<GameObject> GetListTowerSelected(){
+        return unitSelected;
     }
 
 }
