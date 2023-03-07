@@ -10,9 +10,14 @@ public class BuyUnits : MonoBehaviour
         unitSelected = UnitSelections.Instance.GetListTowerSelected();
         foreach(GameObject unit in unitSelected){
             DefenseTower unitTower = unit.GetComponent<DefenseTower>();
-            Debug.Log(unitTower.spotsList[0]);
-            // Transform childTransform = unit.transform.GetChild(2);
-            // Instantiate(wizard.transform, childTransform);
+            // Transform childTransform = unitTower.transform.GetChild(2);
+            foreach(SpotWizard unitSpot in unitTower.spotsList){
+                if(unitSpot.GetWizard() == null){
+                    Transform addWizard = Instantiate(wizard.transform, unitSpot.transform);
+                    unitSpot.AddWizardToSpot(addWizard);
+                    break;
+                }
+            }
         }
     }
 }
