@@ -1,4 +1,4 @@
-# Centinel
+# Sentinel
 
 This is a git for a school project, called Centinel (so far).
 
