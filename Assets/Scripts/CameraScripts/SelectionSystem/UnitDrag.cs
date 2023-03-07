@@ -96,7 +96,6 @@ public class UnitDrag : MonoBehaviour
         {
             if(selectionBox.Contains(MyCam.WorldToScreenPoint(unit.transform.position)))
             {
-                print("hit: " + unit);
                 UnitSelections.Instance.DragSelect(unit);
             }
         }

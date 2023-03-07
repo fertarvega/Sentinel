@@ -10,15 +10,24 @@ public class DragSelect : MonoBehaviour
     private Vector3 mousePositionEnd;
     public RectTransform selectionBox;
 
-    public ImageClick UiClicking;
+    // [SerializeField] private CreateTowers UiClickingDefenseTower;
+    // [SerializeField] private CreateTowers UiClickingResourceTower;
 
     void Update(){
-        if(Input.GetMouseButtonDown(0) ){
+        bool is_imageClicking = false;
+        foreach(ImageClick imageClick in ImageClick.instances)
+        {
+            if(imageClick.isHolding)
+            {
+                is_imageClicking = true;
+            }
+}
+        if(Input.GetMouseButtonDown(0)){
             mousePositionInitial = Input.mousePosition;
             isDragSelect = false;
         }
 
-        if(Input.GetMouseButton(0)&& !UiClicking.isHolding){
+        if(Input.GetMouseButton(0) && !is_imageClicking){
             if(!isDragSelect && (mousePositionInitial - Input.mousePosition).magnitude > 30){
                 isDragSelect = true;
             }

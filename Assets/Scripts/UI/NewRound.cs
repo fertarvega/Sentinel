@@ -11,7 +11,8 @@ public class NewRound : MonoBehaviour, IPointerClickHandler
     }
 
     public void OnPointerClick(PointerEventData eventData){
-        Instantiate(spawn, worldPos, Quaternion.identity);
+        
+        // Instantiate(spawn, worldPos, Quaternion.identity);
     }
 
 }

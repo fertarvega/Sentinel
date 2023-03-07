@@ -4,19 +4,30 @@ using UnityEngine;
 
 public class Unit : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
+    private GridPosition gridPosition;
+    private DefenseTower defenseTower;
+    private ResourceTower resourceTower;
+
+    private void Start(){
         UnitSelections.Instance.unitList.Add(this.gameObject);
+        gridPosition = LevelGrid.Instance.GetGridPosition(transform.position);
+        defenseTower = GetComponent<DefenseTower>();
+        resourceTower = GetComponent<ResourceTower>();
     }
 
     private void OnDestroy() {
         UnitSelections.Instance.unitList.Remove(this.gameObject);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public GridPosition GetGridPosition(){
+        return gridPosition;
+    }
+    // Here need to be the scripts depending on what kind of unit is
+    public DefenseTower GetDefenseTower(){
+        return defenseTower;
+    }
+
+    public ResourceTower GetResourceTower(){
+        return resourceTower;
     }
 }

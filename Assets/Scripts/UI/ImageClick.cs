@@ -1,58 +1,53 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
 public class ImageClick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IPointerEnterHandler, IPointerExitHandler
 {
     [NonSerialized]
     public bool isHolding = false;
-    public GameObject enemyPrefab;
-    private Camera mainCamera;
-    private bool isHovering = false;
-    [SerializeField] private Unit unit;
+    [NonSerialized]
+    public Camera mainCamera;
+    [NonSerialized]
+    public bool isHovering = false;
 
+    public static List<ImageClick> instances = new List<ImageClick>();
+
+    
     void Start(){
         mainCamera = Camera.main;
     }
 
-    public void OnPointerEnter(PointerEventData eventData)
+    void Awake()
+    {
+        instances.Add(this); // Add this instance to the list on creation
+    }
+
+    void OnDestroy()
+    {
+        instances.Remove(this); // Remove this instance from the list on destruction
+    }
+
+    public virtual void OnPointerEnter(PointerEventData eventData)
     {
         isHovering = true;
     }
 
-    public void OnPointerExit(PointerEventData eventData)
+    public virtual void OnPointerExit(PointerEventData eventData)
     {
         isHovering = false;
     }
 
-    public void OnPointerDown(PointerEventData eventData)
+    public virtual void OnPointerDown(PointerEventData eventData)
     {
         isHolding = true;
     }
 
-    public void OnPointerUp(PointerEventData eventData)
-    {   
+    public virtual void OnPointerUp(PointerEventData eventData)
+    {
         isHolding = false;
-        if(isHovering)return;
-        Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
-
-        // Declare a variable to store the hit information
-        RaycastHit hit;
-
-        // Cast the ray and check if it hits an object
-        if (Physics.Raycast(ray, out hit)){
-            GridPosition gridPosition = LevelGrid.Instance.GetGridPosition(hit.point);
-            if(LevelGrid.Instance.IsValidGridPosition(gridPosition) && !LevelGrid.Instance.HasAnyUnitOnGridPosition(gridPosition)){
-                Vector3 worldPos = LevelGrid.Instance.GetWorldPosition(gridPosition);
-                // Print the world position of the mouse
-                // Debug.Log("Mouse position: " + worldPos);
-                Unit newUnit = Instantiate(unit, worldPos, Quaternion.identity);
-                LevelGrid.Instance.AddUnitAtGridPosition(gridPosition, newUnit);
-            }
-        }
-        
-    }
-    
-    private void Update(){
-
     }
 }
