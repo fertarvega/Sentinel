@@ -6,11 +6,15 @@ public class LevelGrid : MonoBehaviour
 {
     public static LevelGrid Instance { get; private set; }
 
-    private GridSystem gridSystem;
+    public GridSystem gridSystem;
     [SerializeField] private Transform gridDebugObjectPrefab;
     public int width = 10;
     public int heigth = 10;
     public float cellSize = 2f;
+
+    public List<Unit> unitList = new List<Unit>();
+    public List<UnitResource> unitResourceList = new List<UnitResource>();
+
     private void Awake() {
         if (Instance != null)
         {
@@ -20,7 +24,13 @@ public class LevelGrid : MonoBehaviour
         }
         Instance = this;
         gridSystem = new GridSystem(width, heigth, cellSize);
-        gridSystem.CreateDebugObjects(gridDebugObjectPrefab);        
+        gridSystem.CreateDebugObjects(gridDebugObjectPrefab);
+    }
+
+    public void LoadMap(){
+        string json = PlayerPrefs.GetString("UnitResource");
+        GridObject data = JsonUtility.FromJson<GridObject>(json);
+        Debug.Log(data);
     }
 
     public void AddUnitAtGridPosition(GridPosition gridPosition, Unit unit) {
@@ -39,6 +49,22 @@ public class LevelGrid : MonoBehaviour
         // Destroy(unit);
     }
 
+    public void AddUnitResourceAtGridPosition(GridPosition gridPosition, UnitResource unitResource) {
+        GridObject gridObject = gridSystem.GetGridObject(gridPosition);
+        gridObject.AddUnitResource(unitResource);
+    }
+
+    public List<UnitResource> GetUnitResourceListAtGridPosition(GridPosition gridPosition){
+        GridObject gridObject = gridSystem.GetGridObject(gridPosition);
+        return gridObject.GetUnitResourceList();
+    }
+
+    public void RemoveUnitResourceAtGridPosition(GridPosition gridPosition, UnitResource unitResource){
+        GridObject gridObject = gridSystem.GetGridObject(gridPosition);
+        gridObject.RemoveUnitResource(unitResource);
+        Destroy(unitResource);
+    }
+
     public void UnitMoveGridPosition(Unit unit, GridPosition oldGridPosition, GridPosition newGridPosition){
         // Destroy(unit);
         // RemoveUnitAtGridPosition(oldGridPosition, unit);
@@ -48,6 +74,8 @@ public class LevelGrid : MonoBehaviour
     }
 
     public GridPosition GetGridPosition(Vector3 worldPosition) => gridSystem.GetGridPosition(worldPosition);
+
+    public List<GridObject> GetAdjacentGridObjects(GridPosition gridPosition) => gridSystem.GetAdjacentGridObjects(gridPosition);
     
     public Vector3 GetWorldPosition(GridPosition gridPosition) => gridSystem.GetWorldPosition(gridPosition);
 
@@ -61,6 +89,6 @@ public class LevelGrid : MonoBehaviour
 
     public bool HasAnyUnitOnGridPosition(GridPosition gridPosition){
         GridObject gridObject = gridSystem.GetGridObject(gridPosition);
-        return gridObject.HasAnyUnit();
+        return gridObject.HasAnyUnit() || gridObject.HasAnyUnitResource();
     }
 }

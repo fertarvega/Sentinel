@@ -6,21 +6,23 @@ public class GridObject
 {
     private GridSystem gridSystem;
     private GridPosition gridPosition;
-    private List<Unit> unitList;
+    public List<Unit> unitList;
+    private List<UnitResource> resourceList;
 
     public GridObject(GridSystem gridSystem, GridPosition gridPosition){
         this.gridSystem = gridSystem;
         this.gridPosition = gridPosition;
         this.unitList = new List<Unit>();
+        this.resourceList = new List<UnitResource>();
     }
 
     public override string ToString()
     {
         string unitString = "";
 
-        foreach(Unit unit in unitList){
-            unitString += unit + "\n";
-        }
+        // foreach(Unit unit in unitList){
+        //     unitString += unit + "\n";
+        // }
         return "[" + gridPosition.x + "," + gridPosition.z + "]" + "\n" + unitString; 
     }
 
@@ -39,4 +41,21 @@ public class GridObject
     public bool HasAnyUnit(){
         return unitList.Count > 0;
     }
+
+    public void AddUnitResource(UnitResource unitResource){
+        resourceList.Add(unitResource);
+    }
+
+    public void RemoveUnitResource(UnitResource unitResource){
+        resourceList.Remove(unitResource);
+    }
+
+    public List<UnitResource> GetUnitResourceList(){
+        return resourceList;
+    }
+
+    public bool HasAnyUnitResource(){
+        return resourceList.Count > 0;
+    }
+
 }

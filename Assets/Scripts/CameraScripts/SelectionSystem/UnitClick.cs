@@ -34,10 +34,10 @@ public class UnitClick : MonoBehaviour
                 // The ray intersects with a non-UI object
                 if(Physics.Raycast(ray, out hit, Mathf.Infinity, clickable)){
                     if (Input.GetKey(KeyCode.LeftShift)){
-                        UnitSelections.Instance.ShiftClickSelect(hit.collider.gameObject);
+                        UnitSelections.Instance.ShiftClickSelect(hit.collider.gameObject.GetComponent<Unit>());
                     }
                     else{
-                        UnitSelections.Instance.ClickSelect(hit.collider.gameObject);
+                        UnitSelections.Instance.ClickSelect(hit.collider.gameObject.GetComponent<Unit>());
                     }
                 }
                 else{
