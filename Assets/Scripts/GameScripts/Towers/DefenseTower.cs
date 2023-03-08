@@ -37,30 +37,30 @@ public class DefenseTower : MonoBehaviour
         
     }
 
-    public void AttackEnemy(Enemy enemy)
-    {
-        if(attack_reload == attack_ratio){
+    // public void AttackEnemy(Enemy enemy)
+    // {
+    //     if(attack_reload == attack_ratio){
             
-            if(enemy.healt > 0)
-            {
-                attack_reload = 0;
-                enemy.healt -= damage;
-            }
-        }
-        else {
-            attack_reload++;
-        }
-    }
+    //         if(enemy.healt > 0)
+    //         {
+    //             attack_reload = 0;
+    //             enemy.healt -= damage;
+    //         }
+    //     }
+    //     else {
+    //         attack_reload++;
+    //     }
+    // }
 
-    public void checkEnemys()
-    {
-        foreach(Enemy enemy in Enemys)
-        {
-            float distance = Vector3.Distance(transform.position, enemy.position);
-            if(distance <= range){
-                AttackEnemy(enemy);
-            }
-        }
-    }
+    // public void checkEnemys()
+    // {
+    //     foreach(Enemy enemy in Enemys)
+    //     {
+    //         float distance = Vector3.Distance(transform.position, enemy.position);
+    //         if(distance <= range){
+    //             AttackEnemy(enemy);
+    //         }
+    //     }
+    // }
 
 }

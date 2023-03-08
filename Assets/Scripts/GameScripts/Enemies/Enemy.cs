@@ -4,34 +4,31 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public int healt = 150;
-    private Vector3 Origin; 
-    public Transform Destiny = null;
-    public bool yendo = true;
-    private UnityEngine.AI.NavMeshAgent navMeshAgent;
+    private EnemyMovement Movement;
 
-    public Vector3 position;
-    // Start is called before the first frame update
-    void Start()
-    {
-        navMeshAgent = transform.GetComponent<UnityEngine.AI.NavMeshAgent>();
-        Origin = transform.position;
+    private EnemyAttack Attack;
+
+    private HealthScript Health;
+
+    public Transform target;
+
+    public HealthScript targetHealth;
+
+    void Awake() {
+        Movement = GetComponent<EnemyMovement>();
+        Attack = GetComponent<EnemyAttack>();
+        Health = GetComponent<HealthScript>();
+        targetHealth = target.GetComponent<HealthScript>();
+    }
+    void Start(){
+        Debug.Log(target.position);
+        Movement.setDestination(target.position);
     }
 
-    // Update is called once per frame
     void Update()
     {   
-        // // Definimos una variable posicion para poder acceder a posicion desde EnemyScript
-        // position = transform.position;
-        // if(healt <= 0)
-        // {
-        //     navMeshAgent.SetDestination(transform.position);
-        //     Destroy(gameObject,2);
-        // }
-        // else
-        // {
-            navMeshAgent.SetDestination(yendo ? Destiny.position : Origin);
-        // }
+        if(Movement.HasReachObjective()){
+            Attack.Attack(targetHealth);
+        }
     }
-
 }

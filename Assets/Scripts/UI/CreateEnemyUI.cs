@@ -23,7 +23,6 @@ public class CreateEnemyUI : ImageClick
                 // Print the world position of the mouse
                 Unit newUnit = Instantiate(unit, worldPos, Quaternion.identity);
                 LevelGrid.Instance.AddUnitAtGridPosition(gridPosition, newUnit);
-                newUnit.GetComponent<EnemyMovement>().canMove=true;
             }
         }
     }
