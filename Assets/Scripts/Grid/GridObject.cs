@@ -57,5 +57,12 @@ public class GridObject
     public bool HasAnyUnitResource(){
         return resourceList.Count > 0;
     }
+    
+    public UnitResource GetUnitResource(){
+        foreach(UnitResource unit in resourceList){
+            return unit;
+        }
+        return null;
+    }
 
 }

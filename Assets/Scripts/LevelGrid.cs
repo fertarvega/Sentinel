@@ -27,12 +27,6 @@ public class LevelGrid : MonoBehaviour
         gridSystem.CreateDebugObjects(gridDebugObjectPrefab);
     }
 
-    public void LoadMap(){
-        string json = PlayerPrefs.GetString("UnitResource");
-        GridObject data = JsonUtility.FromJson<GridObject>(json);
-        Debug.Log(data);
-    }
-
     public void AddUnitAtGridPosition(GridPosition gridPosition, Unit unit) {
         GridObject gridObject = gridSystem.GetGridObject(gridPosition);
         gridObject.AddUnit(unit);

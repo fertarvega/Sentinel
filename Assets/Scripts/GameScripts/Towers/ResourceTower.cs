@@ -9,7 +9,10 @@ public class ResourceTower : MonoBehaviour
     void Start()
     {
         foreach(GridObject obj in LevelGrid.Instance.GetAdjacentGridObjects(GetComponent<Unit>().GetGridPosition())){
-            Debug.Log(obj);
+            if(obj.HasAnyUnitResource()){
+                Debug.Log(obj.GetUnitResource().TypeOfResource[0]);
+
+            }
         }
     }
 
