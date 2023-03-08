@@ -9,14 +9,17 @@ public class BuyUnits : MonoBehaviour
     public void BuyWizard(GameObject wizard){
         unitSelected = UnitSelections.Instance.GetListTowerSelected();
         foreach(GameObject unit in unitSelected){
-            DefenseTower unitTower = unit.GetComponent<DefenseTower>();
-            // Transform childTransform = unitTower.transform.GetChild(2);
-            foreach(SpotWizard unitSpot in unitTower.spotsList){
-                if(unitSpot.GetWizard() == null){
-                    Transform addWizard = Instantiate(wizard.transform, unitSpot.transform);
-                    unitSpot.AddWizardToSpot(addWizard);
-                    break;
+            if(unit != null){
+                DefenseTower unitTower = unit.GetComponent<DefenseTower>();
+                // Transform childTransform = unitTower.transform.GetChild(2);
+                foreach(SpotWizard unitSpot in unitTower.spotsList){
+                    if(unitSpot.GetWizard() == null){
+                        Transform addWizard = Instantiate(wizard.transform, unitSpot.transform);
+                        unitSpot.AddWizardToSpot(addWizard);
+                        break;
+                    }
                 }
+
             }
         }
     }

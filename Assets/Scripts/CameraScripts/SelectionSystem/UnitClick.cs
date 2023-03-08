@@ -11,7 +11,6 @@ public class UnitClick : MonoBehaviour
     private Camera MyCam;
 
     public LayerMask clickable;
-    public LayerMask ui;
     public LayerMask ground;
 
     private void Start(){
