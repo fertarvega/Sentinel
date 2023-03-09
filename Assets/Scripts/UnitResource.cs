@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class UnitResource : MonoBehaviour
 {
-    [SerializeField] public List<string> TypeOfResource = new List<string>{"Gold", "Stone"};
+    // [SerializeField] public List<string> TypeOfResource = new List<string>{"Gold", "Stone"};
+    [SerializeField] public string TypeOfResource;
     private GridPosition gridPosition;
 
     private void Start(){

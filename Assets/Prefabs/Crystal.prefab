@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7074770222090309278}
   - component: {fileID: 461005763285059687}
   m_Layer: 0
-  m_Name: Gold
+  m_Name: Crystal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7558b4c73096be04089113e25b98a8bc, type: 2}
+  - {fileID: 2100000, guid: 92f0ff97d9ef3b1439322934d4c88bca, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -110,4 +110,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abb01804d615ed74f8c0416cafb660cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TypeOfResource: Gold
+  TypeOfResource: Crystal

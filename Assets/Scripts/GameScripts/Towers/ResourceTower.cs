@@ -4,21 +4,33 @@ using UnityEngine;
 
 public class ResourceTower : MonoBehaviour
 {
+
+    private List<string> resources = new List<string>();
     
-    // Start is called before the first frame update
-    void Start()
-    {
+    private void Start(){
         foreach(GridObject obj in LevelGrid.Instance.GetAdjacentGridObjects(GetComponent<Unit>().GetGridPosition())){
             if(obj.HasAnyUnitResource()){
-                Debug.Log(obj.GetUnitResource().TypeOfResource[0]);
-
+                resources.Add(obj.GetUnitResource().TypeOfResource);
             }
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-            
+    public void GetResourcesAmount(){
+        foreach(string resource in resources){
+            switch(resource){
+                case "Gold":
+                    ResourceSystem.Instance.goldResource += 1;
+                    break;
+                case "Stone":
+                    ResourceSystem.Instance.stoneResource += 1;
+                    break;
+                case "Wood":
+                    ResourceSystem.Instance.woodResource += 1;
+                    break;
+                case "Crystal":
+                    ResourceSystem.Instance.crystalResource += 1;
+                    break;
+            }
+        }
     }
 }

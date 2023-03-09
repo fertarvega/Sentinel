@@ -59,10 +59,7 @@ public class GridObject
     }
     
     public UnitResource GetUnitResource(){
-        foreach(UnitResource unit in resourceList){
-            return unit;
-        }
-        return null;
+        return resourceList[0];
     }
 
 }
