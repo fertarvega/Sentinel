@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BuyUnits : MonoBehaviour
+public class BuyWizards : MonoBehaviour
 {
     public List<Unit> unitSelected = new List<Unit>();
 
