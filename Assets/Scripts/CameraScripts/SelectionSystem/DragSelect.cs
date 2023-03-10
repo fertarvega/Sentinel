@@ -65,10 +65,14 @@ public class DragSelect : MonoBehaviour
         GameObject[] selectableObjs = GameObject.FindGameObjectsWithTag("Enemy");
 
         foreach(GameObject selectableObj in selectableObjs){
-            Vector3 objScreenPos = Camera.main.WorldToScreenPoint(selectableObj.transform.position);
+            Unit unit = selectableObj.GetComponent<Unit>();
 
-            if(objScreenPos.x > minValue.x && objScreenPos.x < maxValue.x && objScreenPos.y > minValue.y && objScreenPos.y < maxValue.y){
-                UnitSelections.Instance.DragSelect(selectableObj);
+            if(unit != null){
+                Vector3 objScreenPos = Camera.main.WorldToScreenPoint(selectableObj.transform.position);
+
+                if(objScreenPos.x > minValue.x && objScreenPos.x < maxValue.x && objScreenPos.y > minValue.y && objScreenPos.y < maxValue.y){
+                    UnitSelections.Instance.DragSelect(unit);
+                }
             }
         }
     }

@@ -9,14 +9,14 @@ public class Unit : MonoBehaviour
     private ResourceTower resourceTower;
 
     private void Start(){
-        UnitSelections.Instance.unitList.Add(this.gameObject);
+        LevelGrid.Instance.unitList.Add(this);
         gridPosition = LevelGrid.Instance.GetGridPosition(transform.position);
         defenseTower = GetComponent<DefenseTower>();
         resourceTower = GetComponent<ResourceTower>();
     }
 
     private void OnDestroy() {
-        UnitSelections.Instance.unitList.Remove(this.gameObject);
+        LevelGrid.Instance.unitList.Remove(this);
     }
 
     public GridPosition GetGridPosition(){

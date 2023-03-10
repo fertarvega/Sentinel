@@ -4,8 +4,7 @@ using UnityEngine.UI;
 
 public class UnitSelections : MonoBehaviour
 {
-    public List<GameObject> unitList = new List<GameObject>();
-    public List<GameObject> unitSelected = new List<GameObject>();
+    public List<Unit> unitSelected = new List<Unit>();
 
     private static UnitSelections _instance;
     public static UnitSelections Instance { get { return _instance; } }
@@ -31,28 +30,28 @@ public class UnitSelections : MonoBehaviour
         }
     }
 
-    public void ClickSelect(GameObject unitToAdd)
+    public void ClickSelect(Unit unitToAdd)
     {
         DeselectAll();
         Select(unitToAdd);
     }
     
-    public void ShiftClickSelect(GameObject unitToAdd)
+    public void ShiftClickSelect(Unit unitToAdd)
     {
         if(!unitSelected.Contains(unitToAdd)) Select(unitToAdd);
         else Deselect(unitToAdd);
     }
-    public void DragSelect(GameObject unitToAdd)
+    public void DragSelect(Unit unitToAdd)
     {
         if(!unitSelected.Contains(unitToAdd)) Select(unitToAdd);
     }
-    public void Select(GameObject unitToAdd)
+    public void Select(Unit unitToAdd)
     {
         unitSelected.Add(unitToAdd);
         unitToAdd.transform.GetChild(0).gameObject.SetActive(true);
 
     }
-    public void Deselect(GameObject unitToDeselect)
+    public void Deselect(Unit unitToDeselect)
     {
         unitSelected.Remove(unitToDeselect);
         unitToDeselect.transform.GetChild(0).gameObject.SetActive(false);
@@ -61,12 +60,12 @@ public class UnitSelections : MonoBehaviour
     public void DeselectAll()
     {
         unitSelected.Clear();
-        foreach( var unitToDeselect in unitList)
+        foreach( var unitToDeselect in LevelGrid.Instance.unitList)
         {
             unitToDeselect.transform.GetChild(0).gameObject.SetActive(false);
         }
 
-        // foreach( var unitToDeselect in unitList){
+        // foreach( var unitToDeselect in LevelGrid.Instance.unitList){
         //     for (int i = 0; i < unitToDeselect.transform.childCount; i++)
         //     {
         //         // Get the child game object at index i
@@ -78,7 +77,7 @@ public class UnitSelections : MonoBehaviour
         // }
     }
 
-    public List<GameObject> GetListTowerSelected(){
+    public List<Unit> GetListTowerSelected(){
         return unitSelected;
     }
 

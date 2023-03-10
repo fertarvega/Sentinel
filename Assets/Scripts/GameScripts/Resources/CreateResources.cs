@@ -2,10 +2,10 @@ using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class CreateTowers : ImageClick
+public class CreateResources : ImageClick
 {
-    [SerializeField] private Unit unit;
-    private Unit unitHovering;
+    [SerializeField] private UnitResource unitResource;
+    private UnitResource unitResourceHovering;
 
      public override void OnPointerEnter(PointerEventData eventData){
         base.OnPointerEnter(eventData);
@@ -15,15 +15,15 @@ public class CreateTowers : ImageClick
         base.OnPointerExit(eventData);
     }
 
-    public override void OnPointerDown(PointerEventData eventData){
+    public override void OnPointerDown(PointerEventData eventData){   
         base.OnPointerDown(eventData);
-        unitHovering = Instantiate(unit, new Vector3(-100,-100,0), Quaternion.identity);
+        unitResourceHovering = Instantiate(unitResource, new Vector3(-100,-100,0), Quaternion.identity);
     }
 
     public override void OnPointerUp(PointerEventData eventData){   
         base.OnPointerUp(eventData);
 
-        if(isHovering) return;
+        if(isHovering)return;
         Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
 
         // Declare a variable to store the hit information
@@ -35,8 +35,8 @@ public class CreateTowers : ImageClick
             if(LevelGrid.Instance.IsValidGridPosition(gridPosition) && !LevelGrid.Instance.HasAnyUnitOnGridPosition(gridPosition)){
                 Vector3 worldPos = LevelGrid.Instance.GetWorldPosition(gridPosition);
                 worldPos = new Vector3(worldPos.x, 0.5f, worldPos.z);
-                Unit newUnit = Instantiate(unit, worldPos, Quaternion.identity);
-                LevelGrid.Instance.AddUnitAtGridPosition(gridPosition, newUnit);
+                UnitResource newUnitResource = Instantiate(unitResource, worldPos, Quaternion.identity);
+                LevelGrid.Instance.AddUnitResourceAtGridPosition(gridPosition, newUnitResource);
             }
         }
     }
@@ -47,8 +47,8 @@ public class CreateTowers : ImageClick
             Ray ray = Camera.main.ScreenPointToRay(mouse);
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit)){
-                unitHovering.transform.position = new Vector3(hit.point.x, 0, hit.point.z);
+                unitResourceHovering.transform.position = new Vector3(hit.point.x, 0, hit.point.z);
             }
-        } else if(unitHovering && !isHolding) Destroy(unitHovering.gameObject);
+        } else if(unitResourceHovering && !isHolding) Destroy(unitResourceHovering.gameObject);
     }
 }

@@ -67,4 +67,27 @@ public class GridSystem{
     public float GetCellSize(){
         return cellSize;
     }
+
+    public List<GridObject> GetAdjacentGridObjects(GridPosition gridPosition) {
+        List<GridObject> adjacentGridObjects = new List<GridObject>();
+
+        // Recorre los 8 cuadros alrededor de la posición dada
+        for (int xOffset = -1; xOffset <= 1; xOffset++) {
+            for (int zOffset = -1; zOffset <= 1; zOffset++) {
+                if (xOffset == 0 && zOffset == 0) {
+                    // La posición dada no es uno de los cuadros adyacentes
+                    continue;
+                }
+
+                GridPosition adjacentGridPosition = new GridPosition(gridPosition.x + xOffset, gridPosition.z + zOffset);
+
+                if (IsValidGridPosition(adjacentGridPosition)) {
+                    adjacentGridObjects.Add(GetGridObject(adjacentGridPosition));
+                }
+            }
+        }
+
+        return adjacentGridObjects;
+    }
+
 }

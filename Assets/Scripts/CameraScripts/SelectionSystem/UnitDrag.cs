@@ -92,7 +92,7 @@ public class UnitDrag : MonoBehaviour
     }
     void SelectUnits()
     {
-        foreach (var unit in UnitSelections.Instance.unitList)
+        foreach (var unit in LevelGrid.Instance.unitList)
         {
             if(selectionBox.Contains(MyCam.WorldToScreenPoint(unit.transform.position)))
             {
