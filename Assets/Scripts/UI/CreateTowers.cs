@@ -2,35 +2,28 @@ using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class CreateTowers : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IPointerEnterHandler, IPointerExitHandler
+public class CreateTowers : ImageClick
 {
-    [NonSerialized] public bool isHolding = false;
     [SerializeField] private Unit unit;
-    private Camera mainCamera;
-    private bool isHovering = false;
     private Unit unitHovering;
 
-    void Start(){
-        mainCamera = Camera.main;
+     public override void OnPointerEnter(PointerEventData eventData){
+        base.OnPointerEnter(eventData);
     }
 
-    public void OnPointerEnter(PointerEventData eventData){
-        isHovering = true;
+    public override void OnPointerExit(PointerEventData eventData){
+        base.OnPointerExit(eventData);
     }
 
-    public void OnPointerExit(PointerEventData eventData){
-        isHovering = false;
-    }
-
-    public void OnPointerDown(PointerEventData eventData){   
-        isHolding = true;
+    public override void OnPointerDown(PointerEventData eventData){
+        base.OnPointerDown(eventData);
         unitHovering = Instantiate(unit, new Vector3(-100,-100,0), Quaternion.identity);
     }
 
-    public void OnPointerUp(PointerEventData eventData)
-    {   
-        isHolding = false;
-        if(isHovering)return;
+    public override void OnPointerUp(PointerEventData eventData){   
+        base.OnPointerUp(eventData);
+
+        if(isHovering) return;
         Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
 
         // Declare a variable to store the hit information

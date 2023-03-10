@@ -2,34 +2,27 @@ using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class CreateResources : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IPointerEnterHandler, IPointerExitHandler
+public class CreateResources : ImageClick
 {
-    [NonSerialized] public bool isHolding = false;
     [SerializeField] private UnitResource unitResource;
-    private Camera mainCamera;
-    private bool isHovering = false;
     private UnitResource unitResourceHovering;
 
-    void Start(){
-        mainCamera = Camera.main;
+     public override void OnPointerEnter(PointerEventData eventData){
+        base.OnPointerEnter(eventData);
     }
 
-    public void OnPointerEnter(PointerEventData eventData){
-        isHovering = true;
+    public override void OnPointerExit(PointerEventData eventData){
+        base.OnPointerExit(eventData);
     }
 
-    public void OnPointerExit(PointerEventData eventData){
-        isHovering = false;
-    }
-
-    public void OnPointerDown(PointerEventData eventData){   
-        isHolding = true;
+    public override void OnPointerDown(PointerEventData eventData){   
+        base.OnPointerDown(eventData);
         unitResourceHovering = Instantiate(unitResource, new Vector3(-100,-100,0), Quaternion.identity);
     }
 
-    public void OnPointerUp(PointerEventData eventData)
-    {   
-        isHolding = false;
+    public override void OnPointerUp(PointerEventData eventData){   
+        base.OnPointerUp(eventData);
+
         if(isHovering)return;
         Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
 
