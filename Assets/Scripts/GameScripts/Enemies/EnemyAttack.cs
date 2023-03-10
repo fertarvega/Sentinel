@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyAttack : MonoBehaviour
 {
     private Animator animator;
-    private float Damage = 5f;
+    private float Damage = 25f;
     // Start is called before the first frame update
     void Start()
     {
