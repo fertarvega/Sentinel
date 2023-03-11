@@ -6,6 +6,7 @@ public class CreateTowers : ImageClick
 {
     [SerializeField] private Unit unit;
     private Unit unitHovering;
+    [SerializeField] private GameObject cube;
 
      public override void OnPointerEnter(PointerEventData eventData){
         base.OnPointerEnter(eventData);
@@ -37,17 +38,24 @@ public class CreateTowers : ImageClick
                 worldPos = new Vector3(worldPos.x, 0.5f, worldPos.z);
                 Unit newUnit = Instantiate(unit, worldPos, Quaternion.identity);
                 LevelGrid.Instance.AddUnitAtGridPosition(gridPosition, newUnit);
+                cube.SetActive(false);
+                GridSystemVisual.Instance.HideAllGridPosition();
             }
         }
     }
     
     private void Update(){
         if(isHolding){
+            cube.SetActive(true);
             Vector3 mouse = Input.mousePosition;
             Ray ray = Camera.main.ScreenPointToRay(mouse);
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit)){
-                unitHovering.transform.position = new Vector3(hit.point.x, 0, hit.point.z);
+                unitHovering.transform.position = new Vector3(hit.point.x, 3, hit.point.z);
+                GridPosition gridPosition = LevelGrid.Instance.GetGridPosition(hit.point);
+                Vector3 worldPos = LevelGrid.Instance.GetWorldPosition(gridPosition);
+                cube.transform.position = worldPos;
+                GridSystemVisual.Instance.ShowGridPositionList(GridSystemVisual.Instance.GetValidActionGridPositionList());
             }
         } else if(unitHovering && !isHolding) Destroy(unitHovering.gameObject);
     }

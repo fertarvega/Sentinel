@@ -37,7 +37,7 @@ public class GridSystemVisual : MonoBehaviour
     }
 
     private void Update(){
-        UpdateVisualGrid();
+        // UpdateVisualGrid();
     }
 
     public void HideAllGridPosition(){
