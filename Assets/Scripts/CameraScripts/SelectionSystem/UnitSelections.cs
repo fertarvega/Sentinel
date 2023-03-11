@@ -9,7 +9,9 @@ public class UnitSelections : MonoBehaviour
     private static UnitSelections _instance;
     public static UnitSelections Instance { get { return _instance; } }
 
-    public List<Button> buttonList = new List<Button>();
+    public List<GameObject> buttonList = new List<GameObject>();
+
+    private bool flagTower = false;
 
     void Awake() 
     {
@@ -20,46 +22,47 @@ public class UnitSelections : MonoBehaviour
     public void Update(){
         // print(unitSelected.Count);
         if(unitSelected.Count == 0){
-            foreach(Button button in buttonList){
-                button.interactable = false;
+            foreach(GameObject button in buttonList){
+                button.SetActive(false);
+
             }
-        } else {
-            foreach(Button button in buttonList){
-                button.interactable = true;
+        } else if (unitSelected.Count >= 1 && flagTower){
+            foreach(GameObject button in buttonList){
+                button.SetActive(true);
             }
         }
     }
 
-    public void ClickSelect(Unit unitToAdd)
-    {
+    public void ClickSelect(Unit unitToAdd){
         DeselectAll();
         Select(unitToAdd);
     }
     
-    public void ShiftClickSelect(Unit unitToAdd)
-    {
+    public void ShiftClickSelect(Unit unitToAdd){
         if(!unitSelected.Contains(unitToAdd)) Select(unitToAdd);
         else Deselect(unitToAdd);
     }
-    public void DragSelect(Unit unitToAdd)
-    {
+    public void DragSelect(Unit unitToAdd){
         if(!unitSelected.Contains(unitToAdd)) Select(unitToAdd);
     }
-    public void Select(Unit unitToAdd)
-    {
+
+    public void Select(Unit unitToAdd){
         unitSelected.Add(unitToAdd);
         unitToAdd.transform.GetChild(0).gameObject.SetActive(true);
-
+        if(unitToAdd.GetDefenseTower() != null){
+            Debug.Log(unitToAdd.GetDefenseTower());
+            flagTower = true;
+        }
     }
-    public void Deselect(Unit unitToDeselect)
-    {
+    public void Deselect(Unit unitToDeselect){
         unitSelected.Remove(unitToDeselect);
         unitToDeselect.transform.GetChild(0).gameObject.SetActive(false);
     }
 
-    public void DeselectAll()
-    {
+    public void DeselectAll(){
         unitSelected.Clear();
+        flagTower = false;
+
         foreach( var unitToDeselect in LevelGrid.Instance.unitList)
         {
             unitToDeselect.transform.GetChild(0).gameObject.SetActive(false);
