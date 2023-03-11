@@ -50,7 +50,6 @@ public class UnitSelections : MonoBehaviour
         unitSelected.Add(unitToAdd);
         unitToAdd.transform.GetChild(0).gameObject.SetActive(true);
         if(unitToAdd.GetDefenseTower() != null){
-            Debug.Log(unitToAdd.GetDefenseTower());
             flagTower = true;
         }
     }

@@ -39,6 +39,7 @@ public class CreateTowers : ImageClick
                 Unit newUnit = Instantiate(unit, worldPos, Quaternion.identity);
                 LevelGrid.Instance.AddUnitAtGridPosition(gridPosition, newUnit);
                 cube.SetActive(false);
+                cube.transform.position = new Vector3(10, -10, 10);
                 GridSystemVisual.Instance.HideAllGridPosition();
             }
         }
