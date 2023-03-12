@@ -47,6 +47,7 @@ public class CreateTowers : ImageClick
     
     private void Update(){
         if(isHolding){
+            unitHovering.GetComponent<AudioSource>().enabled = false;
             cube.SetActive(true);
             Vector3 mouse = Input.mousePosition;
             Ray ray = Camera.main.ScreenPointToRay(mouse);

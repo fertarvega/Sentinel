@@ -43,6 +43,7 @@ public class CreateResources : ImageClick
     
     private void Update(){
         if(isHolding){
+            unitResourceHovering.GetComponent<AudioSource>().enabled = false;
             Vector3 mouse = Input.mousePosition;
             Ray ray = Camera.main.ScreenPointToRay(mouse);
             RaycastHit hit;
