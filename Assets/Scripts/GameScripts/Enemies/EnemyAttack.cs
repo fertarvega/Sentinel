@@ -5,19 +5,17 @@ using UnityEngine;
 public class EnemyAttack : MonoBehaviour
 {
     private Animator animator;
-    private float Damage = 25f;
+    private int damage = 25;
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start(){
         animator = GetComponent<Animator>();
     }
 
     public void Attack(HealthScript enemyHealth){
         
         AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
-        if(!stateInfo.IsName("Roar"))
-        {
-            enemyHealth.takeDamage(Damage);
+        if(!stateInfo.IsName("Roar")){
+            enemyHealth.TakeDamage(damage);
             animator.Play("Roar");
         }
 

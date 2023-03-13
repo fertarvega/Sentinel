@@ -52,7 +52,9 @@ public class CreateTowers : ImageClick
             Vector3 mouse = Input.mousePosition;
             Ray ray = Camera.main.ScreenPointToRay(mouse);
             RaycastHit hit;
+            unitHovering.transform.GetChild(0).gameObject.SetActive(false);
             if (Physics.Raycast(ray, out hit)){
+
                 unitHovering.transform.position = new Vector3(hit.point.x, 3, hit.point.z);
                 GridPosition gridPosition = LevelGrid.Instance.GetGridPosition(hit.point);
                 Vector3 worldPos = LevelGrid.Instance.GetWorldPosition(gridPosition);

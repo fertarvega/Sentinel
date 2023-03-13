@@ -45,6 +45,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b92302a8566f81e40bf74594235f3f0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 20
+  range: 100
+  towerHealth: 100
+  attackInterval: 2
+  hability: {fileID: 5192195344936801475, guid: adebb3b911165574ab072edb2d71ede2, type: 3}
 --- !u!1001 &8063756583114642445
 PrefabInstance:
   m_ObjectHideFlags: 0
