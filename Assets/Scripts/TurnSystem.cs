@@ -16,12 +16,23 @@ public class TurnSystem : MonoBehaviour
     [SerializeField] private TextMeshProUGUI txtRound;
     [SerializeField] private Button buttonFinishRound;
 
-    public void FinishTurn(){
+    private void Start(){
+        buttonFinishRound.gameObject.SetActive(false);
+    }
 
+    private void Update(){
+        if(LevelGrid.Instance.enemyList.Count == 0){
+            buttonFinishRound.gameObject.SetActive(true);
+        } else {
+            buttonFinishRound.gameObject.SetActive(false);
+        }
+    }
+
+    public void FinishTurn(){
         roundCount += 1;
 
         if(roundCount > totalRounds){
-            
+            buttonFinishRound.gameObject.SetActive(false);
         } else{
             foreach(Unit unit in LevelGrid.Instance.unitList){
                 if(unit.GetResourceTower() != null){

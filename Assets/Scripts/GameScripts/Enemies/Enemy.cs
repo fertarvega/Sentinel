@@ -15,12 +15,13 @@ public class Enemy : MonoBehaviour
     // public HealthScript targetHealth;
 
     void Awake() {
+        LevelGrid.Instance.enemyList.Add(this);
         // Movement = GetComponent<EnemyMovement>();
         // Attack = GetComponent<EnemyAttack>();
         Health = GetComponent<HealthScript>();
         // targetHealth = target.GetComponent<HealthScript>();
-
     }
+
     void Start(){
         // Debug.Log(target.position);
         // Movement.setDestination(target.position);
@@ -31,5 +32,9 @@ public class Enemy : MonoBehaviour
         // if(Movement.HasReachObjective()){
         //     Attack.Attack(targetHealth);
         // }
+    }
+
+    void OnDestroy(){
+        LevelGrid.Instance.enemyList.Remove(this);
     }
 }
