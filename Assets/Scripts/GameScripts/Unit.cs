@@ -22,7 +22,7 @@ public class Unit : MonoBehaviour
     public GridPosition GetGridPosition(){
         return gridPosition;
     }
-    // Here need to be the scripts depending on what kind of unit is
+
     public DefenseTower GetDefenseTower(){
         return defenseTower;
     }

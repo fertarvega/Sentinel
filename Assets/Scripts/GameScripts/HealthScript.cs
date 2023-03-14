@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class HealthScript : MonoBehaviour
 {
-    public float Health = 100f;
-    private float MaxHealth = 100f;
-    private Slider HealthBar;
+    public int health = 100;
+    // private int MaxHealth = 100;
+    [SerializeField] private HealthBar HealthBar;
 
 private void Start() {
     // Iterate over the children of the GameObject
@@ -16,7 +16,7 @@ private void Start() {
         Canvas canvas = child.GetComponent<Canvas>();
         if (canvas != null) {
             // Find the Slider component in the Canvas
-            HealthBar = canvas.GetComponentInChildren<Slider>();
+            // HealthBar = canvas.GetComponentInChildren<Slider>();
             break; // Stop iterating after finding the first Canvas
         }
     }
@@ -24,20 +24,23 @@ private void Start() {
 
     private void Update() {
         if(HealthBar != null){
-            HealthBar.value = Health;
+            HealthBar.SetHealth(health);
         }
+        if(health <= 0) Destroy(gameObject);
     }
-    public void healDamage(float heal){
+    // public void healDamage(float heal){
 
-        Health+=heal;
-        if(Health > MaxHealth){
-            Health = MaxHealth;
-        }
-    }
-    public void takeDamage(float damage){
-        if(Health >= 0){
-            Health-=damage;
-            Debug.Log(Health);
+    //     health+=heal;
+    //     if(health > MaxHealth){
+    //         health = MaxHealth;
+    //         HealthBar.SetHealth(health);
+    //     }
+    // }
+
+    public void TakeDamage(int damage){
+        if(health >= 0){
+            health-=damage;
+            HealthBar.SetHealth(health);
         }
     }
 }

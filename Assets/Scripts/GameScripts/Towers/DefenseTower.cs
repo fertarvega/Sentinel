@@ -4,24 +4,24 @@ using UnityEngine;
 
 public class DefenseTower : MonoBehaviour
 {
-    public int attack_ratio = 100;
+    // public int attack_ratio = 100;
 
-    public int damage = 0;
+    // public float damage = 0;
 
-    public int towerHealt = 100;
+    // public int towerHealth = 100;
 
-    public float range = 100f;
+    // public float range = 100f;
 
-    public List<Enemy> Enemys;
+    // public List<Enemy> Enemys;
 
-    private Enemy NearEnemy;
-    private int attack_reload;
-    [SerializeField] public SpotWizard[] spotsList;
+    // private Enemy NearEnemy;
+    // private int attack_reload;
+    [SerializeField] public SpotWizard[] spotsList = new SpotWizard[3];
 
-    private void Start()
-    {
-        // attack_reload = attack_ratio;
-    }
+    // private void Start()
+    // {
+    //     attack_reload = attack_ratio;
+    // }
 
     void Update()
     {
@@ -42,11 +42,7 @@ public class DefenseTower : MonoBehaviour
     // {
     //     if(attack_reload == attack_ratio){
             
-    //         if(enemy.healt > 0)
-    //         {
-    //             attack_reload = 0;
-    //             enemy.healt -= damage;
-    //         }
+    //         enemy.Health.TakeDamage(damage);
     //     }
     //     else {
     //         attack_reload++;
@@ -57,7 +53,7 @@ public class DefenseTower : MonoBehaviour
     // {
     //     foreach(Enemy enemy in Enemys)
     //     {
-    //         float distance = Vector3.Distance(transform.position, enemy.position);
+    //         float distance = Vector3.Distance(transform.position, enemy.transform.position);
     //         if(distance <= range){
     //             AttackEnemy(enemy);
     //         }

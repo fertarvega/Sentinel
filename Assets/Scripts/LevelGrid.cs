@@ -14,6 +14,7 @@ public class LevelGrid : MonoBehaviour
 
     public List<Unit> unitList = new List<Unit>();
     public List<UnitResource> unitResourceList = new List<UnitResource>();
+    public List<Enemy> enemyList = new List<Enemy>();
 
     private void Awake() {
         if (Instance != null)
@@ -24,7 +25,7 @@ public class LevelGrid : MonoBehaviour
         }
         Instance = this;
         gridSystem = new GridSystem(width, heigth, cellSize);
-        gridSystem.CreateDebugObjects(gridDebugObjectPrefab);
+        // gridSystem.CreateDebugObjects(gridDebugObjectPrefab); Activar el prefab
     }
 
     public void AddUnitAtGridPosition(GridPosition gridPosition, Unit unit) {
