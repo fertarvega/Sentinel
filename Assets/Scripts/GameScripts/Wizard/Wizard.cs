@@ -5,7 +5,7 @@ using UnityEngine;
 public class Wizard : MonoBehaviour
 {
     public int damage = 0;
-    public float range = 100f;
+    public float range = 6f;
     public int towerHealth = 100;
     public float attackInterval = 2f;
 
@@ -15,8 +15,8 @@ public class Wizard : MonoBehaviour
 
     public ParticleSystem hability;
     
-    [Header("Type of wizard")]
-    [SerializeField] private string type;
+    // [Header("Type of wizard")]
+    // [SerializeField] private string type;
 
     private void Start(){
         attackReload = 0;
@@ -49,7 +49,7 @@ public class Wizard : MonoBehaviour
 
     public void CheckEnemies(){
         foreach (Enemy enemy in LevelGrid.Instance.enemyList){
-            float distance = Vector3.Distance(transform.position, enemy.transform.position);
+            float distance = Vector3.Distance(transform.root.position, enemy.transform.position);
             if (distance <= range){
                 nearEnemy = enemy;
                 return;

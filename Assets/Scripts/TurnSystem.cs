@@ -41,8 +41,8 @@ public class TurnSystem : MonoBehaviour
             }
             txtRound.text = "Round " + roundCount + "  of  " + totalRounds;
             txtGold.text = ResourceSystem.Instance.goldResource.ToString();
-            txtWood.text = ResourceSystem.Instance.stoneResource.ToString();
-            txtStone.text = ResourceSystem.Instance.woodResource.ToString();
+            txtWood.text = ResourceSystem.Instance.woodResource.ToString();
+            txtStone.text = ResourceSystem.Instance.stoneResource.ToString();
             txtCrystal.text = ResourceSystem.Instance.crystalResource.ToString();
         }
     }

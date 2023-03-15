@@ -48,7 +48,9 @@ public class UnitSelections : MonoBehaviour
 
     public void Select(Unit unitToAdd){
         unitSelected.Add(unitToAdd);
-        unitToAdd.transform.GetChild(0).gameObject.SetActive(true);
+        if(unitToAdd.transform.GetChild(0).gameObject.activeSelf == false){
+            unitToAdd.transform.GetChild(0).gameObject.SetActive(true);
+        }
         if(unitToAdd.GetDefenseTower() != null){
             flagTower = true;
         }

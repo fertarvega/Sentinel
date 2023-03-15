@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6601260177139920933}
   - component: {fileID: 6803064171997780260}
   m_Layer: 0
-  m_Name: WaterWizard
+  m_Name: FireWizard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,11 +45,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b92302a8566f81e40bf74594235f3f0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 20
+  damage: 10
   range: 6
   towerHealth: 100
-  attackInterval: 2
-  hability: {fileID: 5192195344936801475, guid: adebb3b911165574ab072edb2d71ede2, type: 3}
+  attackInterval: 1
+  hability: {fileID: 6271241949191652178, guid: 97a66da822f60314f94c45bb7b769d9b, type: 3}
 --- !u!1001 &8063756583114642445
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -117,6 +117,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7635826562936255635, guid: 1bbe751c4dacddc42801f1406ecdce4c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8db677f7ac929c94f9cc0b819e7f8216, type: 2}
     - target: {fileID: 919132149155446097, guid: 1bbe751c4dacddc42801f1406ecdce4c, type: 3}
       propertyPath: m_Name
       value: Visual
