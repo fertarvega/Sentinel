@@ -14,6 +14,9 @@ public class Wizard : MonoBehaviour
     private float attackTimer;
 
     public ParticleSystem hability;
+    
+    [Header("Type of wizard")]
+    [SerializeField] private string type;
 
     private void Start(){
         attackReload = 0;
@@ -35,15 +38,13 @@ public class Wizard : MonoBehaviour
         }
     }
 
-    public void AttackEnemy(Enemy enemy){
+    public void AttackEnemy(Enemy enemy){   
         enemy.Health.TakeDamage(damage);
 
         ParticleSystem particles = Instantiate(hability, enemy.transform.position, Quaternion.identity);
 
         // Start playing the particle system
         particles.Play();
-
-    
     }
 
     public void CheckEnemies(){
