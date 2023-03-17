@@ -6,7 +6,7 @@ public class OptionsMenu : MonoBehaviour
 {
     [SerializeField] private GameObject menuOptions;
 
-    public void ActivateMenuOptions(){
+    public void ActivateAndDeactivateMenuOptions(){
         if(menuOptions.activeSelf){
             menuOptions.SetActive(false);
         } else {
