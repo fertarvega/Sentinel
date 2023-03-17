@@ -48,17 +48,18 @@ public class CreateTowers : ImageClick
     private void Update(){
         if(isHolding){
             unitHovering.GetComponent<AudioSource>().enabled = false;
-            cube.SetActive(true);
+            // cube.SetActive(true);
             Vector3 mouse = Input.mousePosition;
             Ray ray = Camera.main.ScreenPointToRay(mouse);
             RaycastHit hit;
-            unitHovering.transform.GetChild(0).gameObject.SetActive(false);
+            // unitHovering.transform.GetChild(0).gameObject.SetActive(false);
             if (Physics.Raycast(ray, out hit)){
 
-                unitHovering.transform.position = new Vector3(hit.point.x, 3, hit.point.z);
+                // unitHovering.transform.position = new Vector3(hit.point.x, 1.5f, hit.point.z);
                 GridPosition gridPosition = LevelGrid.Instance.GetGridPosition(hit.point);
                 Vector3 worldPos = LevelGrid.Instance.GetWorldPosition(gridPosition);
-                cube.transform.position = worldPos;
+                // cube.transform.position = worldPos;
+                unitHovering.transform.position= new Vector3(worldPos.x, 1, worldPos.z);
                 GridSystemVisual.Instance.ShowGridPositionList(GridSystemVisual.Instance.GetValidActionGridPositionList());
             }
         } else if(unitHovering && !isHolding) Destroy(unitHovering.gameObject);
