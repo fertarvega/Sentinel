@@ -6,20 +6,30 @@ public class BuyWizards : MonoBehaviour
 {
     public List<Unit> unitSelected = new List<Unit>();
 
+    public int goldCost = 1;
+
+    public int crystalCost = 1;
+
     public void BuyWizard(GameObject wizard){
         unitSelected = UnitSelections.Instance.GetListTowerSelected();
         foreach(Unit unit in unitSelected){
-            if(unit != null){
-                DefenseTower unitTower = unit.GetComponent<DefenseTower>();
-                // Transform childTransform = unitTower.transform.GetChild(2);
-                foreach(SpotWizard unitSpot in unitTower.spotsList){
-                    if(unitSpot.GetWizard() == null){
-                        Transform addWizard = Instantiate(wizard.transform, unitSpot.transform);
-                        unitSpot.AddWizardToSpot(addWizard);
-                        break;
-                    }
-                }
+            if(
+                ResourceSystem.Instance.goldResource < goldCost || 
+                ResourceSystem.Instance.crystalResource < crystalCost
+            ) {
+                Debug.Log("limit reached, or resources are not enougth");
+                break;
+            }
 
+            DefenseTower unitTower = unit.GetComponent<DefenseTower>();
+            // Transform childTransform = unitTower.transform.GetChild(2);
+            foreach(SpotWizard unitSpot in unitTower.spotsList){
+
+                Transform addWizard = Instantiate(wizard.transform, unitSpot.transform);
+                ResourceSystem.Instance.goldResource -= goldCost;
+                ResourceSystem.Instance.crystalResource -= crystalCost;
+                unitSpot.AddWizardToSpot(addWizard);
+                break;
             }
         }
     }

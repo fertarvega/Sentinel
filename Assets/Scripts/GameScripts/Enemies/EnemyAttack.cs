@@ -7,15 +7,15 @@ public class EnemyAttack : MonoBehaviour
     private Animator animator;
     private int damage = 25;
     // Start is called before the first frame update
-    void Start(){
+    void Awake(){
         animator = GetComponent<Animator>();
     }
 
-    public void Attack(HealthScript enemyHealth){
-        
+    public void Attack(Transform enemy){
+        // HealthScript enemyHealth = enemy.GetComponent<HealthScript>();
         AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
         if(!stateInfo.IsName("Roar")){
-            enemyHealth.TakeDamage(damage);
+            // enemyHealth.TakeDamage(damage);
             animator.Play("Roar");
         }
 
