@@ -71,7 +71,7 @@ public class DragSelect : MonoBehaviour
                 Vector3 objScreenPos = Camera.main.WorldToScreenPoint(selectableObj.transform.position);
 
                 if(objScreenPos.x > minValue.x && objScreenPos.x < maxValue.x && objScreenPos.y > minValue.y && objScreenPos.y < maxValue.y){
-                    UnitSelections.Instance.DragSelect(unit);
+                    // UnitSelections.Instance.DragSelect(unit);
                 }
             }
         }
