@@ -64,6 +64,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13de3beea2f63854b8ba0f5c573b9359, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 50
+  range: 6
+  towerHealth: 100
+  attackInterval: 2
+  hability: {fileID: 6549543012873742318, guid: 9ce43bde658ad964d94b1d83e86eb666, type: 3}
   spotsList:
   - {fileID: 1314977932073296494}
 --- !u!65 &3478904575381432879

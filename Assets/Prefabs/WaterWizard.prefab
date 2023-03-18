@@ -50,6 +50,7 @@ MonoBehaviour:
   towerHealth: 100
   attackInterval: 2
   hability: {fileID: 5192195344936801475, guid: adebb3b911165574ab072edb2d71ede2, type: 3}
+  type: Water
 --- !u!1001 &8063756583114642445
 PrefabInstance:
   m_ObjectHideFlags: 0

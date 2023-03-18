@@ -50,6 +50,7 @@ MonoBehaviour:
   towerHealth: 100
   attackInterval: 1
   hability: {fileID: 6271241949191652178, guid: 97a66da822f60314f94c45bb7b769d9b, type: 3}
+  type: Fire
 --- !u!1001 &8063756583114642445
 PrefabInstance:
   m_ObjectHideFlags: 0

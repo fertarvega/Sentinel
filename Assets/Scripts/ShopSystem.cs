@@ -13,6 +13,7 @@ public class ShopSystem : MonoBehaviour
             if(unitSpot.GetWizard() == null){
                 Transform addWizard = Instantiate(wizard.transform, unitSpot.transform);
                 unitSpot.AddWizardToSpot(addWizard);
+                defenseTowerSelected.ActivateCombinatedAttack();
                 break;
             }
         }
@@ -26,5 +27,6 @@ public class ShopSystem : MonoBehaviour
         defenseTowerSelected.spotsList.Add(spot);
 
         UnitSelections.Instance.ActivateShopSystemDefenseTower();
+
     }
 }

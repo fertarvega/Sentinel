@@ -15,25 +15,28 @@ public class Wizard : MonoBehaviour
 
     public ParticleSystem hability;
     
-    // [Header("Type of wizard")]
-    // [SerializeField] private string type;
+    [Header("Type of wizard")]
+    [SerializeField] public string type;
+    private bool attackEnabled = true;
 
     private void Start(){
         attackReload = 0;
         attackTimer = 0f;
     }
 
-    private void FixedUpdate(){
-        CheckEnemies();
-        if (nearEnemy != null){
-            attackTimer += Time.deltaTime;
-            if (attackTimer >= attackInterval && attackReload == 0){
-                AttackEnemy(nearEnemy);
-                attackReload = Mathf.FloorToInt(attackInterval / Time.fixedDeltaTime);
-                attackTimer = 0f;
-            }
-            else if (attackReload > 0){
-                attackReload--;
+    private void Update(){
+        if(attackEnabled){
+            CheckEnemies();
+            if (nearEnemy != null){
+                attackTimer += Time.deltaTime;
+                if (attackTimer >= attackInterval && attackReload == 0){
+                    AttackEnemy(nearEnemy);
+                    attackReload = Mathf.FloorToInt(attackInterval / Time.fixedDeltaTime);
+                    attackTimer = 0f;
+                }
+                else if (attackReload > 0){
+                    attackReload--;
+                }
             }
         }
     }
@@ -56,5 +59,9 @@ public class Wizard : MonoBehaviour
             }
         }
         nearEnemy = null;
+    }
+
+    public void DisableAttack(){
+        attackEnabled = false;
     }
 }
