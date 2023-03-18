@@ -66,8 +66,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spotsList:
   - {fileID: 1314977932073296494}
-  - {fileID: 5264986832642288163}
-  - {fileID: 5316785229081504933}
+  - {fileID: 0}
 --- !u!65 &3478904575381432879
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -93,7 +92,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: e62c4464b66c887448ab40d8a5161fb0, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -188,7 +187,7 @@ GameObject:
   - component: {fileID: 487504994307256279}
   - component: {fileID: 5316785229081504933}
   m_Layer: 7
-  m_Name: spot (2)
+  m_Name: spot_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -331,7 +330,7 @@ GameObject:
   - component: {fileID: 2080924107672962018}
   - component: {fileID: 5264986832642288163}
   m_Layer: 7
-  m_Name: spot (1)
+  m_Name: spot_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -507,7 +506,7 @@ GameObject:
   - component: {fileID: 3065888485068173290}
   - component: {fileID: 1314977932073296494}
   m_Layer: 7
-  m_Name: spot
+  m_Name: spot_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

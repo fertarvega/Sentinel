@@ -39,7 +39,7 @@ public class TurnSystem : MonoBehaviour
                     unit.GetResourceTower().GetResourcesAmount();
                 }
             }
-            txtRound.text = "Round " + roundCount + "  of  " + totalRounds;
+            txtRound.text = "Wave " + roundCount + "  of  " + totalRounds;
             txtGold.text = ResourceSystem.Instance.goldResource.ToString();
             txtWood.text = ResourceSystem.Instance.woodResource.ToString();
             txtStone.text = ResourceSystem.Instance.stoneResource.ToString();

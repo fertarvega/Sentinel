@@ -34,15 +34,15 @@ public class DragSelect : MonoBehaviour
             
             if(isDragSelect){
                 mousePositionEnd = Input.mousePosition;
-                UpdateSelectionBox();
+                // UpdateSelectionBox();
             }
         }
 
         if(Input.GetMouseButtonUp(0)){
             if(isDragSelect){
                 isDragSelect = false;
-                UpdateSelectionBox();
-                SelectObjects();
+                // UpdateSelectionBox();
+                // SelectObjects();
             }
         }
     }

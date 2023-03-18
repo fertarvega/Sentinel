@@ -16,7 +16,7 @@ public class DefenseTower : MonoBehaviour
 
     // private Enemy NearEnemy;
     // private int attack_reload;
-    [SerializeField] public SpotWizard[] spotsList = new SpotWizard[3];
+    [SerializeField] public SpotWizard[] spotsList = new SpotWizard[2];
 
     // private void Start()
     // {
@@ -35,9 +35,18 @@ public class DefenseTower : MonoBehaviour
         // }
         // if(NearEnemy != null && attack_reload == attack_ratio){
         // }
-        
     }
 
+    
+
+    public int GetLenghtSpotsList(){
+        return spotsList.Length;
+    }
+
+    public SpotWizard GetSecondSpot(){
+        Debug.Log(spotsList[1]);
+        return spotsList[1];
+    }
     // public void AttackEnemy(Enemy enemy)
     // {
     //     if(attack_reload == attack_ratio){
