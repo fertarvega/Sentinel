@@ -5,6 +5,7 @@ using UnityEngine;
 public class ShopSystem : MonoBehaviour
 {
     private DefenseTower defenseTowerSelected;
+    private ResourceTower resourceTowerSelected;
 
     public void BuyWizard(GameObject wizard){
         defenseTowerSelected = UnitSelections.Instance.GetDefenseTowerSelected();
@@ -28,5 +29,13 @@ public class ShopSystem : MonoBehaviour
 
         UnitSelections.Instance.ActivateShopSystemDefenseTower();
 
+    }
+
+    public void BuyUpgradeResourceTower(){
+        resourceTowerSelected = UnitSelections.Instance.GetResourceTowerSelected();
+
+        resourceTowerSelected.getResourceQuantity = 2;
+
+        UnitSelections.Instance.ActivateShopSystemResourceTower();
     }
 }

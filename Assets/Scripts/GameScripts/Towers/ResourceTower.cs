@@ -6,6 +6,7 @@ public class ResourceTower : MonoBehaviour
 {
 
     private List<string> resources = new List<string>();
+    public int getResourceQuantity = 1;
     
     private void Start(){
         foreach(GridObject obj in LevelGrid.Instance.GetAdjacentGridObjects(GetComponent<Unit>().GetGridPosition())){
@@ -19,16 +20,16 @@ public class ResourceTower : MonoBehaviour
         foreach(string resource in resources){
             switch(resource){
                 case "Gold":
-                    ResourceSystem.Instance.goldResource += 1;
+                    ResourceSystem.Instance.goldResource += getResourceQuantity;
                     break;
                 case "Stone":
-                    ResourceSystem.Instance.stoneResource += 1;
+                    ResourceSystem.Instance.stoneResource += getResourceQuantity;
                     break;
                 case "Wood":
-                    ResourceSystem.Instance.woodResource += 1;
+                    ResourceSystem.Instance.woodResource += getResourceQuantity;
                     break;
                 case "Crystal":
-                    ResourceSystem.Instance.crystalResource += 1;
+                    ResourceSystem.Instance.crystalResource += getResourceQuantity;
                     break;
             }
         }

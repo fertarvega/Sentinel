@@ -7,7 +7,8 @@ public class UnitSelections : MonoBehaviour
     public static UnitSelections Instance { get; private set; }
     // public List<Unit> unitSelected = new List<Unit>();
     public Unit unitSelected;
-    public List<GameObject> buttonList = new List<GameObject>();
+    public List<GameObject> defenseTowerButtonList = new List<GameObject>();
+    public List<GameObject> resourceTowerButtonList = new List<GameObject>();
 
     private bool flagTower = false;
 
@@ -32,14 +33,21 @@ public class UnitSelections : MonoBehaviour
         }
         if(unitToAdd.GetDefenseTower() != null){
             flagTower = true;
+            ActivateShopSystemDefenseTower();
+        } else if(unitToAdd.GetResourceTower() != null) {
+            ActivateShopSystemResourceTower();
         }
-        ActivateShopSystemDefenseTower();
     }
 
     public void DeselectAll(){
-        foreach(GameObject button in buttonList) {
-                button.SetActive(false);
-            }
+        foreach(GameObject button in defenseTowerButtonList) {
+            button.SetActive(false);
+        }
+
+        foreach(GameObject button in resourceTowerButtonList) {
+            button.SetActive(false);
+        }
+
         flagTower = false;
 
         foreach( var unitToDeselect in LevelGrid.Instance.unitList)
@@ -53,11 +61,15 @@ public class UnitSelections : MonoBehaviour
         return unitSelected.GetComponent<DefenseTower>();
     }
 
+    public ResourceTower GetResourceTowerSelected(){
+        return unitSelected.GetComponent<ResourceTower>();
+    }
+
     public void ActivateShopSystemDefenseTower(){
         if (unitSelected != null && flagTower) {
             DefenseTower defenseTower = unitSelected.GetDefenseTower();
 
-            foreach(GameObject button in buttonList) {
+            foreach(GameObject button in defenseTowerButtonList) {
                 button.SetActive(false);
 
                    if (button.name != "UpgradeTower") {
@@ -72,9 +84,28 @@ public class UnitSelections : MonoBehaviour
                 }
             }
         } else {
-            foreach(GameObject button in buttonList) {
+            foreach(GameObject button in defenseTowerButtonList) {
                 button.SetActive(false);
             }
         }
+    }
+
+    public void ActivateShopSystemResourceTower(){
+        if (unitSelected != null) {
+            ResourceTower resourceTower = unitSelected.GetResourceTower();
+            if(resourceTower.getResourceQuantity == 1){
+                foreach(GameObject button in resourceTowerButtonList) {
+                    button.SetActive(true);
+                }
+            } else {
+                foreach(GameObject button in resourceTowerButtonList) {
+                    button.SetActive(false);
+                }
+            }
+        } else {
+            foreach(GameObject button in resourceTowerButtonList) {
+                button.SetActive(false);
+            }
+        } 
     }
 }

@@ -82,9 +82,15 @@ public class DefenseTower : MonoBehaviour
         }
 
         if(bothSpotsHaveWizard && spotsList.Count == 2){
-            DeactivateSpotWizardAttack();
-            SelectHability();
-            activateCombinatedAttack = true;
+            foreach(SpotWizard spot in spotsList){
+                Wizard wizard = spot.GetWizard();
+                wizardList.Add(wizard);
+            }
+            if(wizardList[0].type != wizardList[1].type){
+                DeactivateSpotWizardAttack();
+                SelectHability();
+                activateCombinatedAttack = true;
+            }
         }
     }
 
@@ -95,11 +101,6 @@ public class DefenseTower : MonoBehaviour
     }
 
     private void SelectHability(){
-        foreach(SpotWizard spot in spotsList){
-            Wizard wizard = spot.GetWizard();
-            wizardList.Add(wizard);
-        }
-
         if((wizardList[0].type == "Water" && wizardList[1].type == "Fire") || (wizardList[0].type == "Fire" && wizardList[1].type == "Water")){
             hability = ListCombinedHabilities.Instance.listCombinedHabilities[0];
             attackInterval = 1f;
@@ -110,8 +111,7 @@ public class DefenseTower : MonoBehaviour
             attackInterval = 2f;
             damage = 25;
             debuff = "Slow";
-        } else {
-            //Fire and Electro
+        } else if((wizardList[0].type == "Fire" && wizardList[1].type == "Electro") || (wizardList[0].type == "Electro" && wizardList[1].type == "Fire")){
             hability = ListCombinedHabilities.Instance.listCombinedHabilities[2];
             attackInterval = 3f;
             damage = 50;
