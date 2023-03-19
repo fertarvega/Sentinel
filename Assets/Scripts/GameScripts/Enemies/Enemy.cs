@@ -37,4 +37,15 @@ public class Enemy : MonoBehaviour
     void OnDestroy(){
         LevelGrid.Instance.enemyList.Remove(this);
     }
+
+    public void TakeDebuff(string debuff){
+        switch(debuff) {
+            case "Stun":
+                break;
+            case "Slow":
+                break;
+            case "Burst":
+                break;
+        }
+    }
 }

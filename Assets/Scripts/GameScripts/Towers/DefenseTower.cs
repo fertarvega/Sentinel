@@ -21,6 +21,8 @@ public class DefenseTower : MonoBehaviour
 
     private bool activateCombinatedAttack = false;
 
+    private string debuff;
+
    private void Start(){
         attackReload = 0;
         attackTimer = 0f;
@@ -49,6 +51,7 @@ public class DefenseTower : MonoBehaviour
 
     public void AttackEnemy(Enemy enemy){   
         enemy.Health.TakeDamage(damage);
+        enemy.TakeDebuff(debuff);
 
         ParticleSystem particles = Instantiate(hability, enemy.transform.position, Quaternion.identity);
 
@@ -97,12 +100,22 @@ public class DefenseTower : MonoBehaviour
             wizardList.Add(wizard);
         }
 
-        if((wizardList[0].type == "Electro" && wizardList[1].type == "Water") || (wizardList[0].type == "Water" && wizardList[1].type == "Electro")){
-            hability = ListCombinedHabilities.Instance.listCombinedHabilities[1];
-            damage = 1;
-        } else {
+        if((wizardList[0].type == "Water" && wizardList[1].type == "Fire") || (wizardList[0].type == "Fire" && wizardList[1].type == "Water")){
             hability = ListCombinedHabilities.Instance.listCombinedHabilities[0];
-            damage = 1;
+            attackInterval = 1f;
+            damage = 15;
+            debuff = "Stun";
+        } else if((wizardList[0].type == "Water" && wizardList[1].type == "Electro") || (wizardList[0].type == "Electro" && wizardList[1].type == "Water")){
+            hability = ListCombinedHabilities.Instance.listCombinedHabilities[1];
+            attackInterval = 2f;
+            damage = 25;
+            debuff = "Slow";
+        } else {
+            //Fire and Electro
+            hability = ListCombinedHabilities.Instance.listCombinedHabilities[2];
+            attackInterval = 3f;
+            damage = 50;
+            debuff = "Burst";
         }
     }
 }

@@ -49,7 +49,7 @@ MonoBehaviour:
   range: 6
   towerHealth: 100
   attackInterval: 4
-  hability: {fileID: 4735817586624218379, guid: da5034ca18936d2408b66aed7b196205, type: 3}
+  hability: {fileID: 5485438090367930973, guid: 8923f15027cd3ee46842e8e2787ffab8, type: 3}
   type: Electro
 --- !u!1001 &8063756583114642445
 PrefabInstance:
