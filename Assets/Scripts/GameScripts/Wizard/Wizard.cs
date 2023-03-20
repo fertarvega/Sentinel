@@ -6,7 +6,6 @@ public class Wizard : MonoBehaviour
 {
     public int damage = 0;
     public float range = 6f;
-    public int towerHealth = 100;
     public float attackInterval = 2f;
 
     private Enemy nearEnemy;
@@ -46,11 +45,11 @@ public class Wizard : MonoBehaviour
 
         ParticleSystem particles = Instantiate(hability, enemy.transform.position, Quaternion.identity);
 
-        // Start playing the particle system
         particles.Play();
     }
 
     public void CheckEnemies(){
+            Debug.Log(LevelGrid.Instance.enemyList.Count);
         foreach (Enemy enemy in LevelGrid.Instance.enemyList){
             float distance = Vector3.Distance(transform.root.position, enemy.transform.position);
             if (distance <= range){

@@ -7,14 +7,6 @@ public class CreateTowers : ImageClick
     [SerializeField] private Unit unit;
     private Unit unitHovering;
 
-     public override void OnPointerEnter(PointerEventData eventData){
-        base.OnPointerEnter(eventData);
-    }
-
-    public override void OnPointerExit(PointerEventData eventData){
-        base.OnPointerExit(eventData);
-    }
-
     public override void OnPointerDown(PointerEventData eventData){
         base.OnPointerDown(eventData);
         unitHovering = Instantiate(unit, new Vector3(-100,-100,0), Quaternion.identity);

@@ -4,34 +4,31 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    // private EnemyMovement Movement;
+    private EnemyMovement Movement;
 
-    // private EnemyAttack Attack;
+    private EnemyAttack Attack;
 
     public HealthScript Health;
 
-    // public Transform target;
-
-    // public HealthScript targetHealth;
-
-    void Awake() {
-        LevelGrid.Instance.enemyList.Add(this);
-        // Movement = GetComponent<EnemyMovement>();
-        // Attack = GetComponent<EnemyAttack>();
-        Health = GetComponent<HealthScript>();
-        // targetHealth = target.GetComponent<HealthScript>();
-    }
+    public Transform target = null;
 
     void Start(){
-        // Debug.Log(target.position);
-        // Movement.setDestination(target.position);
+        Movement = GetComponent<EnemyMovement>();
+        Attack = GetComponent<EnemyAttack>();
+        Health = GetComponent<HealthScript>();
+        LevelGrid.Instance.enemyList.Add(this);
     }
 
-    void Update()
-    {   
-        // if(Movement.HasReachObjective()){
-        //     Attack.Attack(targetHealth);
-        // }
+
+    void Update(){   
+        if(target != null){
+            Movement.setDestination(target.position);
+            if(Movement.HasReachObjective()){
+                Attack.Attack(target);
+            }
+        }else{
+            Movement.setDestination(null);
+        }
     }
 
     void OnDestroy(){

@@ -26,6 +26,11 @@ public class TurnSystem : MonoBehaviour
         } else {
             buttonFinishRound.gameObject.SetActive(false);
         }
+
+        txtGold.text = ResourceSystem.Instance.goldResource.ToString();
+        txtWood.text = ResourceSystem.Instance.woodResource.ToString();
+        txtStone.text = ResourceSystem.Instance.stoneResource.ToString();
+        txtCrystal.text = ResourceSystem.Instance.crystalResource.ToString();
     }
 
     public void FinishTurn(){
@@ -40,10 +45,6 @@ public class TurnSystem : MonoBehaviour
                 }
             }
             txtRound.text = "Wave " + roundCount + "  of  " + totalRounds;
-            txtGold.text = ResourceSystem.Instance.goldResource.ToString();
-            txtWood.text = ResourceSystem.Instance.woodResource.ToString();
-            txtStone.text = ResourceSystem.Instance.stoneResource.ToString();
-            txtCrystal.text = ResourceSystem.Instance.crystalResource.ToString();
         }
     }
 }

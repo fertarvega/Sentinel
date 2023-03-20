@@ -14,6 +14,7 @@ public class ResourceTower : MonoBehaviour
                 resources.Add(obj.GetUnitResource().TypeOfResource);
             }
         }
+        InvokeRepeating("GetResourcesAmount", 0f, 3f); // spawn an enemy every 3 second
     }
 
     public void GetResourcesAmount(){
