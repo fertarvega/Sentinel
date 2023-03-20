@@ -6,15 +6,6 @@ public class CreateTowers : ImageClick
 {
     [SerializeField] private Unit unit;
     private Unit unitHovering;
-    [SerializeField] private GameObject cube;
-
-     public override void OnPointerEnter(PointerEventData eventData){
-        base.OnPointerEnter(eventData);
-    }
-
-    public override void OnPointerExit(PointerEventData eventData){
-        base.OnPointerExit(eventData);
-    }
 
     public override void OnPointerDown(PointerEventData eventData){
         base.OnPointerDown(eventData);
@@ -38,8 +29,8 @@ public class CreateTowers : ImageClick
                 worldPos = new Vector3(worldPos.x, 0.5f, worldPos.z);
                 Unit newUnit = Instantiate(unit, worldPos, Quaternion.identity);
                 LevelGrid.Instance.AddUnitAtGridPosition(gridPosition, newUnit);
-                cube.SetActive(false);
-                cube.transform.position = new Vector3(10, -10, 10);
+                newUnit.transform.GetChild(0).gameObject.SetActive(false);
+
                 GridSystemVisual.Instance.HideAllGridPosition();
             }
         }
@@ -48,17 +39,14 @@ public class CreateTowers : ImageClick
     private void Update(){
         if(isHolding){
             unitHovering.GetComponent<AudioSource>().enabled = false;
-            cube.SetActive(true);
             Vector3 mouse = Input.mousePosition;
             Ray ray = Camera.main.ScreenPointToRay(mouse);
             RaycastHit hit;
-            unitHovering.transform.GetChild(0).gameObject.SetActive(false);
             if (Physics.Raycast(ray, out hit)){
 
-                unitHovering.transform.position = new Vector3(hit.point.x, 3, hit.point.z);
                 GridPosition gridPosition = LevelGrid.Instance.GetGridPosition(hit.point);
                 Vector3 worldPos = LevelGrid.Instance.GetWorldPosition(gridPosition);
-                cube.transform.position = worldPos;
+                unitHovering.transform.position= new Vector3(worldPos.x, 1, worldPos.z);
                 GridSystemVisual.Instance.ShowGridPositionList(GridSystemVisual.Instance.GetValidActionGridPositionList());
             }
         } else if(unitHovering && !isHolding) Destroy(unitHovering.gameObject);

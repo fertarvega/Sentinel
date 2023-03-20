@@ -4,11 +4,24 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
-    public float speed = 10.0f;
-    public float rotationSpeed = 45.0f;
+    [SerializeField] private float speed = 10.0f;
+    [SerializeField] private float rotationSpeed = 45.0f;
+    [SerializeField] private float zoomSpeed = 10f;
+    [SerializeField] private float minZoom = 5f;
+    [SerializeField] private float maxZoom = 60f;
+    private Camera mainCamera;
+
+   private void Start(){
+        mainCamera = Camera.main;
+    }
 
     void Update()
     {
+        HandleMovement();
+        HandleZoom();
+    }
+
+    private void HandleMovement(){
         float yPos = transform.position.y;
         if (Input.GetKey(KeyCode.W))
         {
@@ -40,5 +53,16 @@ public class CameraMovement : MonoBehaviour
             transform.eulerAngles = currentRotation;
         }
         transform.position = new Vector3(transform.position.x, yPos, transform.position.z);
+    }
+
+    private void HandleZoom(){
+        float scroll = Input.GetAxis("Mouse ScrollWheel");
+        float newZoom = mainCamera.fieldOfView + (-scroll) * zoomSpeed;
+
+        // Limit the zoom within the min and max values
+        newZoom = Mathf.Clamp(newZoom, minZoom, maxZoom);
+
+        // Apply the new zoom level to the camera
+        mainCamera.fieldOfView = newZoom;
     }
 }

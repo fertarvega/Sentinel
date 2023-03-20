@@ -8,7 +8,7 @@ public class AudioSystem : MonoBehaviour
 
     private void Start(){
         foreach(AudioSource source in _audioSources){
-            // source.volume = 0.0f;
+            source.volume = 0.5f;
         }
     }
 }

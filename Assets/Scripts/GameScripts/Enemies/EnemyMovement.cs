@@ -6,18 +6,29 @@ using System;
 
 public class EnemyMovement : MonoBehaviour
 {
+    private Animator animator;
     private UnityEngine.AI.NavMeshAgent navMesh;
     // Start is called before the first frame update
     void Awake()
     {
+        animator = GetComponent<Animator>();
         navMesh = GetComponent<UnityEngine.AI.NavMeshAgent>();
         navMesh.stoppingDistance = 2.0f; // set stopping distance to 2 meter
     }
 
-    // Update is called once per frame
+    private void Update() {
+        AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+        if(!stateInfo.IsName("Roar") && (navMesh.velocity != Vector3.zero)){
+            // enemyHealth.TakeDamage(damage);
+            animator.Play("Walk Forward W Root");
+        }
+    }
 
-    public void setDestination(Vector3 destination){
-        navMesh.destination = destination;
+    public void setDestination(Vector3? destination){
+        if (destination.HasValue)
+            {
+                navMesh.destination = destination.Value;
+            }
     }
 
     public bool HasReachObjective(){

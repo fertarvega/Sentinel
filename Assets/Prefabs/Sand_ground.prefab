@@ -13,12 +13,12 @@ GameObject:
   - component: {fileID: 5502167280063187171}
   - component: {fileID: 982222202742393102}
   - component: {fileID: 4378219133862850289}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sand_ground
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &5691720003067948579
 Transform:
@@ -110,6 +110,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d287d14b4e0da434b87b8af5e59eb33f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material: {fileID: 0}
+  material: {fileID: 2100000, guid: dd978dde4df1f714099e095796e31f48, type: 2}
   color: {r: 1, g: 1, b: 1, a: 1}
   scale: {x: 1, y: 1, z: 1}

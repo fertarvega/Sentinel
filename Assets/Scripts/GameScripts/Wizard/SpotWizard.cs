@@ -11,8 +11,7 @@ public class SpotWizard : MonoBehaviour
     }
 
     public Wizard GetWizard(){
-        if(wizard == null)
-        {
+        if(wizard == null){
             return null;
         } else {
             if (wizard.TryGetComponent<Wizard>(out Wizard wizardSelection))
@@ -22,7 +21,6 @@ public class SpotWizard : MonoBehaviour
             else {
                 return null;
             }
-
         }
     }
 }

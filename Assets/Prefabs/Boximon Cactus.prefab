@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4524327886909436}
   - component: {fileID: 137921807473290344}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Boximon Cactus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -114,7 +114,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4170622585158212}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: RigLArm1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,7 +146,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4888895659750716}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: RigRibcageGizmo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4868576767231572}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: RigLArm2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -209,7 +209,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4248789905274030}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: RigLArmPalm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -240,7 +240,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4004416456830248}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: RigSpine3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -272,7 +272,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4314684719785702}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: RigPelvis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -306,7 +306,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4322075915694068}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: RigHead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -338,7 +338,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4399011893286716}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: RigRLegAnkle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -369,7 +369,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4225742228426184}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: RigRArm2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -401,7 +401,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4873877124408278}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: RigLLeg1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -433,7 +433,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4314099061626836}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: RigRArm1Gizmo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -464,7 +464,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4728996652892616}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: RigRLegPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -495,7 +495,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4164452079365436}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: RigRArm1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -527,7 +527,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4821389883171368}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: RigRArmPalm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -558,7 +558,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4493427050922098}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: RigLArm2Gizmo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -589,7 +589,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4149852002531042}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: RigNeck1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -621,7 +621,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4486718818105424}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: RigRLeg1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -653,7 +653,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4014532917450870}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: RigJaw
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -684,7 +684,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4005648874836676}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: RigRibcage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -718,7 +718,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4356241259530142}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: RigPelvisGizmo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -749,7 +749,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4850047355783166}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: RigSpine2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -781,7 +781,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4109703031195110}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: RigRArmPalmGizmo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -813,14 +813,14 @@ GameObject:
   m_Component:
   - component: {fileID: 4352415372715300}
   - component: {fileID: 95392191540945048}
-  - component: {fileID: 4281238140139237965}
   - component: {fileID: 3810450732438398394}
-  - component: {fileID: -4910391992968834633}
   - component: {fileID: 2031186011}
   - component: {fileID: 2031186017}
   - component: {fileID: 2031186018}
   - component: {fileID: 2031186019}
-  m_Layer: 7
+  - component: {fileID: -4910391992968834633}
+  - component: {fileID: 5900401313678838014}
+  m_Layer: 0
   m_Name: Boximon Cactus
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -835,7 +835,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1685869051807330}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.0120391, y: 0, z: 1.5226828}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -877,18 +877,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
---- !u!114 &4281238140139237965
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1685869051807330}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8a8404188031ea41823ce16dce3ad60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &3810450732438398394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -901,19 +889,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18840efc3ecb489429151e6e0044582d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!65 &-4910391992968834633
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1685869051807330}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!195 &2031186011
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -961,6 +936,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: {fileID: 2031186019}
+  target: {fileID: 0}
 --- !u!114 &2031186019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -974,6 +950,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  HealthBar: {fileID: 8846755636948885771}
+--- !u!65 &-4910391992968834633
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1685869051807330}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &5900401313678838014
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1685869051807330}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1714959256011768
 GameObject:
   m_ObjectHideFlags: 0
@@ -983,7 +989,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4472963700762202}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Rig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1014,7 +1020,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4244351154188920}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: RigRLeg2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1046,7 +1052,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4643995828516102}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: RigLArmPalmGizmo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1077,7 +1083,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4215086062688262}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: RigLLegPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1108,7 +1114,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4951750783781348}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: RigSpine1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1140,7 +1146,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4825040266116526}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: RigNeck2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1172,7 +1178,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4238958944274922}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: RigLLeg2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1204,7 +1210,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4554678409846804}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: RigLLegAnkle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1235,7 +1241,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4273163084523620}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: RigRArm2Gizmo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1266,7 +1272,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4050106774054052}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: RigLArm1Gizmo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1300,7 +1306,7 @@ GameObject:
   - component: {fileID: 7826987875413372492}
   - component: {fileID: 8995153941863353886}
   - component: {fileID: 1752951961858493965}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1397,6 +1403,54 @@ PrefabInstance:
       propertyPath: slider
       value: 
       objectReference: {fileID: 1182555201}
+    - target: {fileID: 1064119315, guid: 25b35af41ceca9c47afb50b306f4fec7, type: 3}
+      propertyPath: gradient.ctime0
+      value: 16397
+      objectReference: {fileID: 0}
+    - target: {fileID: 1064119315, guid: 25b35af41ceca9c47afb50b306f4fec7, type: 3}
+      propertyPath: gradient.ctime1
+      value: 32768
+      objectReference: {fileID: 0}
+    - target: {fileID: 1064119315, guid: 25b35af41ceca9c47afb50b306f4fec7, type: 3}
+      propertyPath: gradient.ctime2
+      value: 49151
+      objectReference: {fileID: 0}
+    - target: {fileID: 1064119315, guid: 25b35af41ceca9c47afb50b306f4fec7, type: 3}
+      propertyPath: gradient.key1.b
+      value: 0.011764695
+      objectReference: {fileID: 0}
+    - target: {fileID: 1064119315, guid: 25b35af41ceca9c47afb50b306f4fec7, type: 3}
+      propertyPath: gradient.key1.g
+      value: 0.5217037
+      objectReference: {fileID: 0}
+    - target: {fileID: 1064119315, guid: 25b35af41ceca9c47afb50b306f4fec7, type: 3}
+      propertyPath: gradient.key1.r
+      value: 0.972549
+      objectReference: {fileID: 0}
+    - target: {fileID: 1064119315, guid: 25b35af41ceca9c47afb50b306f4fec7, type: 3}
+      propertyPath: gradient.key2.b
+      value: 0.012833698
+      objectReference: {fileID: 0}
+    - target: {fileID: 1064119315, guid: 25b35af41ceca9c47afb50b306f4fec7, type: 3}
+      propertyPath: gradient.key2.g
+      value: 0.855475
+      objectReference: {fileID: 0}
+    - target: {fileID: 1064119315, guid: 25b35af41ceca9c47afb50b306f4fec7, type: 3}
+      propertyPath: gradient.key2.r
+      value: 0.9716981
+      objectReference: {fileID: 0}
+    - target: {fileID: 1064119315, guid: 25b35af41ceca9c47afb50b306f4fec7, type: 3}
+      propertyPath: gradient.key3.b
+      value: 0.3443396
+      objectReference: {fileID: 0}
+    - target: {fileID: 1064119315, guid: 25b35af41ceca9c47afb50b306f4fec7, type: 3}
+      propertyPath: gradient.key3.r
+      value: 0.6488679
+      objectReference: {fileID: 0}
+    - target: {fileID: 1064119315, guid: 25b35af41ceca9c47afb50b306f4fec7, type: 3}
+      propertyPath: gradient.m_NumColorKeys
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 8846755636098703676, guid: 25b35af41ceca9c47afb50b306f4fec7, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1417,6 +1471,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -40.012516
       objectReference: {fileID: 0}
+    - target: {fileID: 8846755636098703677, guid: 25b35af41ceca9c47afb50b306f4fec7, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8846755637335724356, guid: 25b35af41ceca9c47afb50b306f4fec7, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8846755637335724379, guid: 25b35af41ceca9c47afb50b306f4fec7, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1430,12 +1492,20 @@ PrefabInstance:
       value: 66.8515
       objectReference: {fileID: 0}
     - target: {fileID: 8846755638068607965, guid: 25b35af41ceca9c47afb50b306f4fec7, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8846755638068607965, guid: 25b35af41ceca9c47afb50b306f4fec7, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8846755638103672084, guid: 25b35af41ceca9c47afb50b306f4fec7, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 8846755638103672084, guid: 25b35af41ceca9c47afb50b306f4fec7, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8846755638103672109, guid: 25b35af41ceca9c47afb50b306f4fec7, type: 3}
       propertyPath: m_Pivot.x
@@ -1541,6 +1611,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8846755638226311335, guid: 25b35af41ceca9c47afb50b306f4fec7, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25b35af41ceca9c47afb50b306f4fec7, type: 3}
 --- !u!114 &1182555201 stripped
@@ -1559,3 +1633,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8846755638103672109, guid: 25b35af41ceca9c47afb50b306f4fec7, type: 3}
   m_PrefabInstance: {fileID: 8846755636301057304}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8846755636948885771 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1064119315, guid: 25b35af41ceca9c47afb50b306f4fec7, type: 3}
+  m_PrefabInstance: {fileID: 8846755636301057304}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd05c73dc55acbb4fab78f32b03da781, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

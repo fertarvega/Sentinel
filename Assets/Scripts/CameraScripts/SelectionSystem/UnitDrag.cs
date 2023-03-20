@@ -45,7 +45,7 @@ public class UnitDrag : MonoBehaviour
             endPosition = Vector2.zero;
             DrawVisual();
             DrawSelection();
-            SelectUnits();
+            // SelectUnits();
         }
     }
 
@@ -90,14 +90,14 @@ public class UnitDrag : MonoBehaviour
             selectionBox.yMax = Input.mousePosition.y;
         }
     }
-    void SelectUnits()
-    {
-        foreach (var unit in LevelGrid.Instance.unitList)
-        {
-            if(selectionBox.Contains(MyCam.WorldToScreenPoint(unit.transform.position)))
-            {
-                UnitSelections.Instance.DragSelect(unit);
-            }
-        }
-    }
+    // void SelectUnits()
+    // {
+    //     foreach (var unit in LevelGrid.Instance.unitList)
+    //     {
+    //         if(selectionBox.Contains(MyCam.WorldToScreenPoint(unit.transform.position)))
+    //         {
+    //             UnitSelections.Instance.DragSelect(unit);
+    //         }
+    //     }
+    // }
 }

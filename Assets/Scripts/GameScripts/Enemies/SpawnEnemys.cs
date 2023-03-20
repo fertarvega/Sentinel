@@ -5,25 +5,35 @@ using UnityEngine;
 public class SpawnEnemys : MonoBehaviour
 {
     public GameObject enemyPrefab;
-    public int numberOfEnemies = 10;
-    public float spawnRadius = 10f;
-    // public Transform Destiny = null;
-    void Awake()
-    {
 
-    }
+    public int enemyNumber = 10;
+
+    private int enemyCounter = 0;
+
+    public Transform target = null;
+
     private void Start()
     {
-        // for (int i = 0; i < numberOfEnemies; i++)
-        // {
-        //     // + Random.insideUnitSphere * spawnRadius
-        //     Vector3 spawnPosition = transform.position;
-            
-        //     // spawnPosition.y = Terrain.activeTerrain.SampleHeight(spawnPosition);
-            
-        //     GameObject enemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
-            
-        //     enemy.GetComponent<Enemy>().Destiny = Destiny;
-        // }
+        InvokeRepeating("spawnEnemy", 0f, 1f); // spawn an enemy every 1 second
+    }
+
+    void spawnEnemy(){
+        if(enemyCounter < enemyNumber){
+            Vector3 newPosition = transform.position;
+
+            // // random position
+            // newPosition.x += Random.Range(-2.5f, 2.5f);
+            // newPosition.z += Random.Range(-2.5f, 2.5f);
+
+
+            GameObject enemy = Instantiate(enemyPrefab, newPosition, transform.rotation);
+            enemy.GetComponent<Enemy>().target = target;
+            enemyCounter++;
+        }
+        else
+        {
+            // stop the repeating invocation when we've spawned enough enemies
+            CancelInvoke("SpawnEnemyWithDelay");
+        }
     }
 }
