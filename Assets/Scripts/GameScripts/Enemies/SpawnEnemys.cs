@@ -20,7 +20,6 @@ public class SpawnEnemys : MonoBehaviour
     void spawnEnemy(){
         if(enemyCounter < enemyNumber){
             Vector3 newPosition = transform.position;
-
             // // random position
             // newPosition.x += Random.Range(-2.5f, 2.5f);
             // newPosition.z += Random.Range(-2.5f, 2.5f);

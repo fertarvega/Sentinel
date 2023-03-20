@@ -4,26 +4,21 @@ using UnityEngine.EventSystems;
 
 public class CreateResources : ImageClick
 {
-    [SerializeField] private UnitResource unitResource;
-    private UnitResource unitResourceHovering;
+    [SerializeField] private Unit unit;
+    private Unit unitHovering;
 
-     public override void OnPointerEnter(PointerEventData eventData){
-        base.OnPointerEnter(eventData);
-    }
-
-    public override void OnPointerExit(PointerEventData eventData){
-        base.OnPointerExit(eventData);
-    }
-
-    public override void OnPointerDown(PointerEventData eventData){   
+    public override void OnPointerDown(PointerEventData eventData){
         base.OnPointerDown(eventData);
-        unitResourceHovering = Instantiate(unitResource, new Vector3(-100,-100,0), Quaternion.identity);
+        unitHovering = Instantiate(unit, new Vector3(-100,-100,0), Quaternion.identity);
     }
 
     public override void OnPointerUp(PointerEventData eventData){   
         base.OnPointerUp(eventData);
 
-        if(isHovering)return;
+        if(isHovering) return;
+
+        if(!ShopSystem.Instance.CanBuyResourceTower()) return;
+
         Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
 
         // Declare a variable to store the hit information
@@ -35,21 +30,29 @@ public class CreateResources : ImageClick
             if(LevelGrid.Instance.IsValidGridPosition(gridPosition) && !LevelGrid.Instance.HasAnyUnitOnGridPosition(gridPosition)){
                 Vector3 worldPos = LevelGrid.Instance.GetWorldPosition(gridPosition);
                 worldPos = new Vector3(worldPos.x, 0.5f, worldPos.z);
-                UnitResource newUnitResource = Instantiate(unitResource, worldPos, Quaternion.identity);
-                LevelGrid.Instance.AddUnitResourceAtGridPosition(gridPosition, newUnitResource);
+                Unit newUnit = Instantiate(unit, worldPos, Quaternion.identity);
+                ShopSystem.Instance.BuyResourceTower();
+                LevelGrid.Instance.AddUnitAtGridPosition(gridPosition, newUnit);
+                newUnit.transform.GetChild(0).gameObject.SetActive(false);
+
+                GridSystemVisual.Instance.HideAllGridPosition();
             }
         }
     }
     
     private void Update(){
         if(isHolding){
-            unitResourceHovering.GetComponent<AudioSource>().enabled = false;
+            unitHovering.GetComponent<AudioSource>().enabled = false;
             Vector3 mouse = Input.mousePosition;
             Ray ray = Camera.main.ScreenPointToRay(mouse);
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit)){
-                unitResourceHovering.transform.position = new Vector3(hit.point.x, 0, hit.point.z);
+
+                GridPosition gridPosition = LevelGrid.Instance.GetGridPosition(hit.point);
+                Vector3 worldPos = LevelGrid.Instance.GetWorldPosition(gridPosition);
+                unitHovering.transform.position= new Vector3(worldPos.x, 1, worldPos.z);
+                GridSystemVisual.Instance.ShowGridPositionList(GridSystemVisual.Instance.GetValidActionGridPositionList());
             }
-        } else if(unitResourceHovering && !isHolding) Destroy(unitResourceHovering.gameObject);
+        } else if(unitHovering && !isHolding) Destroy(unitHovering.gameObject);
     }
 }

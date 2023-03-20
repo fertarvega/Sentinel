@@ -26,7 +26,7 @@ public class GridSystem{
     }
 
     public Vector3 GetWorldPosition(GridPosition gridPosition){
-        return new Vector3(gridPosition.x, 0, gridPosition.z) * cellSize;
+        return new Vector3(gridPosition.x, 0f, gridPosition.z) * cellSize;
     }
 
     public GridPosition GetGridPosition(Vector3 worldPosition)

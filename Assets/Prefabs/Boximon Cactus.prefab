@@ -818,8 +818,8 @@ GameObject:
   - component: {fileID: 2031186017}
   - component: {fileID: 2031186018}
   - component: {fileID: 2031186019}
-  - component: {fileID: -4910391992968834633}
   - component: {fileID: 5900401313678838014}
+  - component: {fileID: 5443010452956608780}
   m_Layer: 0
   m_Name: Boximon Cactus
   m_TagString: Enemy
@@ -951,19 +951,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   HealthBar: {fileID: 8846755636948885771}
---- !u!65 &-4910391992968834633
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1685869051807330}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &5900401313678838014
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -980,6 +967,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!136 &5443010452956608780
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1685869051807330}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!1 &1714959256011768
 GameObject:
   m_ObjectHideFlags: 0

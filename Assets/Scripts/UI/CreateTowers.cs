@@ -16,6 +16,9 @@ public class CreateTowers : ImageClick
         base.OnPointerUp(eventData);
 
         if(isHovering) return;
+
+        if(!ShopSystem.Instance.CanBuyTowerDefense()) return;
+
         Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
 
         // Declare a variable to store the hit information
@@ -28,6 +31,7 @@ public class CreateTowers : ImageClick
                 Vector3 worldPos = LevelGrid.Instance.GetWorldPosition(gridPosition);
                 worldPos = new Vector3(worldPos.x, 0.5f, worldPos.z);
                 Unit newUnit = Instantiate(unit, worldPos, Quaternion.identity);
+                ShopSystem.Instance.BuyTowerDefense();
                 LevelGrid.Instance.AddUnitAtGridPosition(gridPosition, newUnit);
                 newUnit.transform.GetChild(0).gameObject.SetActive(false);
 

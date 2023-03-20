@@ -49,7 +49,6 @@ public class Wizard : MonoBehaviour
     }
 
     public void CheckEnemies(){
-            Debug.Log(LevelGrid.Instance.enemyList.Count);
         foreach (Enemy enemy in LevelGrid.Instance.enemyList){
             float distance = Vector3.Distance(transform.root.position, enemy.transform.position);
             if (distance <= range){

@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class ResourceSystem : MonoBehaviour
 {
-    public int goldResource = 0;
-    public int stoneResource = 0;
-    public int woodResource = 0;
-    public int crystalResource = 0;
+    public int goldResource;
+    public int stoneResource;
+    public int woodResource;
+    public int crystalResource;
 
     public static ResourceSystem Instance { get; private set; }
 
@@ -20,6 +20,5 @@ public class ResourceSystem : MonoBehaviour
         }
         Instance = this;
     }
-
 
 }
