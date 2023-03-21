@@ -9,6 +9,10 @@ public class HealthScript : MonoBehaviour
     // private int MaxHealth = 100;
     [SerializeField] private HealthBar HealthBar;
 
+    private void Awake(){
+        HealthBar.SetMaxHealth(health);
+    }
+
 private void Start() {
     // Iterate over the children of the GameObject
     foreach (Transform child in transform) {
@@ -41,6 +45,7 @@ private void Start() {
         if(health >= 0){
             health-=damage;
             HealthBar.SetHealth(health);
+
         }
     }
 }
