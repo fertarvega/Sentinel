@@ -8,12 +8,14 @@ public class GridObject
     private GridPosition gridPosition;
     public List<Unit> unitList;
     private List<UnitResource> resourceList;
+    private List<GridEmptyObject> emptyObjects;
 
     public GridObject(GridSystem gridSystem, GridPosition gridPosition){
         this.gridSystem = gridSystem;
         this.gridPosition = gridPosition;
         this.unitList = new List<Unit>();
         this.resourceList = new List<UnitResource>();
+        this.emptyObjects = new List<GridEmptyObject>();
     }
 
     public override string ToString()
@@ -46,6 +48,10 @@ public class GridObject
         resourceList.Add(unitResource);
     }
 
+    public void AddEmptyObject(GridEmptyObject gridEmptyObject){
+        emptyObjects.Add(gridEmptyObject);
+    }
+
     public void RemoveUnitResource(UnitResource unitResource){
         resourceList.Remove(unitResource);
     }
@@ -56,6 +62,10 @@ public class GridObject
 
     public bool HasAnyUnitResource(){
         return resourceList.Count > 0;
+    }
+
+    public bool HasAnyEmptyObject(){
+        return emptyObjects.Count > 0;
     }
     
     public UnitResource GetUnitResource(){

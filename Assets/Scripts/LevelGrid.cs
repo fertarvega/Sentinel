@@ -60,6 +60,11 @@ public class LevelGrid : MonoBehaviour
         Destroy(unitResource);
     }
 
+    public void AddEmptyObjectAtGridPosition(GridPosition gridPosition, GridEmptyObject gridEmptyObject) {
+        GridObject gridObject = gridSystem.GetGridObject(gridPosition);
+        gridObject.AddEmptyObject(gridEmptyObject);
+    }
+
     public void UnitMoveGridPosition(Unit unit, GridPosition oldGridPosition, GridPosition newGridPosition){
         // Destroy(unit);
         // RemoveUnitAtGridPosition(oldGridPosition, unit);
@@ -84,6 +89,6 @@ public class LevelGrid : MonoBehaviour
 
     public bool HasAnyUnitOnGridPosition(GridPosition gridPosition){
         GridObject gridObject = gridSystem.GetGridObject(gridPosition);
-        return gridObject.HasAnyUnit() || gridObject.HasAnyUnitResource();
+        return gridObject.HasAnyUnit() || gridObject.HasAnyUnitResource() || gridObject.HasAnyEmptyObject();
     }
 }
