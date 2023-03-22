@@ -13,6 +13,8 @@ public class UiList : MonoBehaviour
     [SerializeField] public TextMeshProUGUI txtCrystal;
     [SerializeField] public TextMeshProUGUI txtRound;
     [SerializeField] public Button buttonFinishRound;
+    [SerializeField] public Button buttonStartWave;
+    [SerializeField] public GameObject tutorialMenu; 
 
     private void Awake() {
         if (Instance != null){
@@ -28,5 +30,13 @@ public class UiList : MonoBehaviour
         txtWood.text = ResourceSystem.Instance.woodResource.ToString();
         txtStone.text = ResourceSystem.Instance.stoneResource.ToString();
         txtCrystal.text = ResourceSystem.Instance.crystalResource.ToString();
+    }
+
+    public void ActivateAndDeactivateTutorial(){
+        if(tutorialMenu.activeSelf){
+            tutorialMenu.SetActive(false);
+        } else {
+            tutorialMenu.SetActive(true);
+        }
     }
 }

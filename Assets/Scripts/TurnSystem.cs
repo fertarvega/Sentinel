@@ -21,10 +21,13 @@ public class TurnSystem : MonoBehaviour
         }
 
 
+
     }
 
     public void FinishTurn(){
         roundCount += 1;
+        UiList.Instance.buttonFinishRound.gameObject.SetActive(false);
+        UiList.Instance.buttonStartWave.gameObject.SetActive(true);
 
         if(roundCount > totalRounds){
             UiList.Instance.buttonFinishRound.gameObject.SetActive(false);
@@ -36,5 +39,10 @@ public class TurnSystem : MonoBehaviour
             }
             UiList.Instance.txtRound.text = "Wave " + roundCount + "  of  " + totalRounds;
         }
+    }
+
+    public void StartTurn(){
+        UiList.Instance.buttonStartWave.gameObject.SetActive(false);
+
     }
 }
