@@ -13,7 +13,7 @@ public class EnemyMovement : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         navMesh = GetComponent<UnityEngine.AI.NavMeshAgent>();
-        navMesh.stoppingDistance = 2.0f; // set stopping distance to 2 meter
+        navMesh.stoppingDistance = 1.0f; // set stopping distance to 2 meter
     }
 
     private void Update() {
