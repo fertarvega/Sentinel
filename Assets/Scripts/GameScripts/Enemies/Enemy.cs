@@ -5,12 +5,14 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     private EnemyMovement Movement;
-
     private EnemyAttack Attack;
-
     public HealthScript Health;
-
     public Transform target = null;
+
+    private bool reachObjective = false;
+    private int attackReload;
+    private float attackTimer;
+    public float attackInterval = 2f;
 
     void Start(){
         Movement = GetComponent<EnemyMovement>();
@@ -19,14 +21,21 @@ public class Enemy : MonoBehaviour
         LevelGrid.Instance.enemyList.Add(this);
     }
 
-
     void Update(){   
         if(target != null){
             Movement.setDestination(target.position);
-            if(Movement.HasReachObjective()){
-                Attack.Attack(target);
-            }
-        }else{
+            if(Movement.HasReachObjective() || reachObjective){
+                attackTimer += Time.deltaTime;
+                if (attackTimer >= attackInterval && attackReload == 0){
+                    Attack.Attack(target);
+                    attackReload = Mathf.FloorToInt(attackInterval / Time.fixedDeltaTime);
+                    attackTimer = 0f;
+                }
+                else if (attackReload > 0){
+                    attackReload--;
+                }
+            }            
+        } else{
             Movement.setDestination(null);
         }
     }
@@ -43,6 +52,13 @@ public class Enemy : MonoBehaviour
                 break;
             case "Burst":
                 break;
+        }
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.name == "CentralTower"){
+            reachObjective = true;
         }
     }
 }

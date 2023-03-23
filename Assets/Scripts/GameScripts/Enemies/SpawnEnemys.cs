@@ -14,7 +14,11 @@ public class SpawnEnemys : MonoBehaviour
 
     private void Start()
     {
+    }
+
+    public void StartSpawnEnemy(){
         InvokeRepeating("spawnEnemy", 0f, 1f); // spawn an enemy every 1 second
+        enemyCounter = 0;
     }
 
     void spawnEnemy(){
