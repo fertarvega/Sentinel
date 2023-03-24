@@ -14,6 +14,9 @@ public class Enemy : MonoBehaviour
     private float attackTimer;
     public float attackInterval = 2f;
 
+    private bool flagDebuff = false;
+    private float timer = 0f;
+
     void Start(){
         Movement = GetComponent<EnemyMovement>();
         Attack = GetComponent<EnemyAttack>();
@@ -38,6 +41,15 @@ public class Enemy : MonoBehaviour
         } else{
             Movement.setDestination(null);
         }
+
+        if(flagDebuff){
+            timer += Time.deltaTime;
+            if(timer >= 2f){
+                flagDebuff = false;
+                timer = 0f;
+                Movement.movementSpeed = 1.5f;
+            }
+        }
     }
 
     void OnDestroy(){
@@ -45,18 +57,20 @@ public class Enemy : MonoBehaviour
     }
 
     public void TakeDebuff(string debuff){
+        flagDebuff = true;
         switch(debuff) {
             case "Stun":
+                Movement.movementSpeed = 0f;
                 break;
             case "Slow":
+                Movement.movementSpeed = .5f;
                 break;
             case "Burst":
                 break;
         }
     }
 
-    void OnCollisionEnter(Collision collision)
-    {
+    void OnCollisionEnter(Collision collision){
         if(collision.gameObject.name == "CentralTower"){
             reachObjective = true;
         }

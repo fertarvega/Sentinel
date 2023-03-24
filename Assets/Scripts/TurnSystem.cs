@@ -15,7 +15,6 @@ public class TurnSystem : MonoBehaviour
         UiList.Instance.buttonFinishRound.gameObject.SetActive(false);
         UiList.Instance.buttonStartWave.gameObject.SetActive(true);
         UiList.Instance.txtRound.text = "Wave " + roundCount + "  of  " + totalRounds;
-
     }
 
     private void Update(){
@@ -31,7 +30,7 @@ public class TurnSystem : MonoBehaviour
         UiList.Instance.buttonFinishRound.gameObject.SetActive(false);
         UiList.Instance.buttonStartWave.gameObject.SetActive(true);
 
-        if(roundCount == totalRounds){
+        if(roundCount > totalRounds){
             // UiList.Instance.buttonFinishRound.gameObject.SetActive(false);
             var scene = SceneManager.GetActiveScene().name;
             if(scene == "Level_1"){
@@ -55,7 +54,6 @@ public class TurnSystem : MonoBehaviour
             spawn.StartSpawnEnemy();
         }
         UiList.Instance.buttonStartWave.gameObject.SetActive(false);
-
     }
 
 

@@ -58,15 +58,29 @@ public class DefenseTower : MonoBehaviour
         particles.Play();
     }
 
+    // public void CheckEnemies(){
+    //     foreach (Enemy enemy in LevelGrid.Instance.enemyList){
+    //         float distance = Vector3.Distance(transform.root.position, enemy.transform.position);
+    //         if (distance <= range){
+    //             nearEnemy = enemy;
+    //             return;
+    //         }
+    //     }
+    //     nearEnemy = null;
+    // }
+
     public void CheckEnemies(){
+        float minDistance = Mathf.Infinity;
         foreach (Enemy enemy in LevelGrid.Instance.enemyList){
             float distance = Vector3.Distance(transform.root.position, enemy.transform.position);
-            if (distance <= range){
+            if (distance < minDistance && distance <= range){
                 nearEnemy = enemy;
-                return;
+                minDistance = distance;
             }
         }
-        nearEnemy = null;
+        if (minDistance == Mathf.Infinity){
+            nearEnemy = null;
+        }
     }
 
     public void ActivateCombinatedAttack(){
@@ -103,13 +117,13 @@ public class DefenseTower : MonoBehaviour
     private void SelectHability(){
         if((wizardList[0].type == "Water" && wizardList[1].type == "Fire") || (wizardList[0].type == "Fire" && wizardList[1].type == "Water")){
             hability = ListCombinedHabilities.Instance.listCombinedHabilities[0];
-            attackInterval = 1.5f;
-            damage = 25;
+            attackInterval = 2.5f;
+            damage = 20;
             debuff = "Stun";
         } else if((wizardList[0].type == "Water" && wizardList[1].type == "Electro") || (wizardList[0].type == "Electro" && wizardList[1].type == "Water")){
             hability = ListCombinedHabilities.Instance.listCombinedHabilities[1];
-            attackInterval = 2.5f;
-            damage = 35;
+            attackInterval = 3.5f;
+            damage = 30;
             debuff = "Slow";
         } else if((wizardList[0].type == "Fire" && wizardList[1].type == "Electro") || (wizardList[0].type == "Electro" && wizardList[1].type == "Fire")){
             hability = ListCombinedHabilities.Instance.listCombinedHabilities[2];

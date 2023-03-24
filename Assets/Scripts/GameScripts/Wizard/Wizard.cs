@@ -49,15 +49,29 @@ public class Wizard : MonoBehaviour
     }
 
     public void CheckEnemies(){
+        float minDistance = Mathf.Infinity;
         foreach (Enemy enemy in LevelGrid.Instance.enemyList){
             float distance = Vector3.Distance(transform.root.position, enemy.transform.position);
-            if (distance <= range){
+            if (distance < minDistance && distance <= range){
                 nearEnemy = enemy;
-                return;
+                minDistance = distance;
             }
         }
-        nearEnemy = null;
+        if (minDistance == Mathf.Infinity){
+            nearEnemy = null;
+        }
     }
+
+    // public void CheckEnemies(){
+    //     foreach (Enemy enemy in LevelGrid.Instance.enemyList){
+    //         float distance = Vector3.Distance(transform.root.position, enemy.transform.position);
+    //         if (distance <= range){
+    //             nearEnemy = enemy;
+    //             return;
+    //         }
+    //     }
+    //     nearEnemy = null;
+    // }
 
     public void DisableAttack(){
         attackEnabled = false;

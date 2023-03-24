@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
-  range: 6
+  range: 8
   attackInterval: 2
   hability: {fileID: 5192195344936801475, guid: adebb3b911165574ab072edb2d71ede2, type: 3}
   type: Water

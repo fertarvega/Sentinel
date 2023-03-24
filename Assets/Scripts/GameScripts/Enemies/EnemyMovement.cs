@@ -8,7 +8,7 @@ public class EnemyMovement : MonoBehaviour
 {
     private Animator animator;
     private UnityEngine.AI.NavMeshAgent navMesh;
-    [SerializeField] private float movementSpeed = 1.5f;
+    [SerializeField] public float movementSpeed = 1.5f;
     // Start is called before the first frame update
     void Awake()
     {
@@ -19,6 +19,7 @@ public class EnemyMovement : MonoBehaviour
     }
 
     private void Update() {
+        navMesh.speed = movementSpeed;
         AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
         if(!stateInfo.IsName("Roar") && (navMesh.velocity != Vector3.zero)){
             // enemyHealth.TakeDamage(damage);

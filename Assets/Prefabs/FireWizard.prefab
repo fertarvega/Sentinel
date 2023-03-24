@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 5
-  range: 6
+  range: 8
   attackInterval: 1
   hability: {fileID: 6271241949191652178, guid: 97a66da822f60314f94c45bb7b769d9b, type: 3}
   type: Fire
