@@ -8,12 +8,14 @@ public class EnemyMovement : MonoBehaviour
 {
     private Animator animator;
     private UnityEngine.AI.NavMeshAgent navMesh;
+    [SerializeField] private float movementSpeed = 1.5f;
     // Start is called before the first frame update
     void Awake()
     {
         animator = GetComponent<Animator>();
         navMesh = GetComponent<UnityEngine.AI.NavMeshAgent>();
         navMesh.stoppingDistance = 1.0f; // set stopping distance to 2 meter
+        navMesh.speed = movementSpeed;
     }
 
     private void Update() {
@@ -25,8 +27,7 @@ public class EnemyMovement : MonoBehaviour
     }
 
     public void setDestination(Vector3? destination){
-        if (destination.HasValue)
-            {
+        if (destination.HasValue){
                 navMesh.destination = destination.Value;
             }
     }

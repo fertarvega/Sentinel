@@ -9,6 +9,11 @@ public class ResourceSystem : MonoBehaviour
     public int woodResource;
     public int crystalResource;
 
+    public int totalToRecollectGold = 1;
+    public int totalToRecollectStone = 1;
+    public int totalToRecollectWood = 1;
+    public int totalToRecollectCrystal = 1;
+
     public static ResourceSystem Instance { get; private set; }
 
     private void Awake() {

@@ -26,10 +26,10 @@ public class UiList : MonoBehaviour
     }
 
     private void Update(){
-        txtGold.text = ResourceSystem.Instance.goldResource.ToString();
-        txtWood.text = ResourceSystem.Instance.woodResource.ToString();
-        txtStone.text = ResourceSystem.Instance.stoneResource.ToString();
-        txtCrystal.text = ResourceSystem.Instance.crystalResource.ToString();
+        txtGold.text = ResourceSystem.Instance.goldResource.ToString() + " (+"+ResourceSystem.Instance.totalToRecollectGold.ToString()+")";
+        txtWood.text = ResourceSystem.Instance.woodResource.ToString()+ " (+"+ResourceSystem.Instance.totalToRecollectWood.ToString()+")";
+        txtStone.text = ResourceSystem.Instance.stoneResource.ToString()+ " (+"+ResourceSystem.Instance.totalToRecollectStone.ToString()+")";
+        txtCrystal.text = ResourceSystem.Instance.crystalResource.ToString()+ " (+"+ResourceSystem.Instance.totalToRecollectCrystal.ToString()+")";
     }
 
     public void ActivateAndDeactivateTutorial(){

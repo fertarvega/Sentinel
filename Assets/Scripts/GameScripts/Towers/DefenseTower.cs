@@ -118,4 +118,8 @@ public class DefenseTower : MonoBehaviour
             debuff = "Burst";
         }
     }
+
+    protected List<SpotWizard> GetWizardsList(){
+        return spotsList;
+    }
 }

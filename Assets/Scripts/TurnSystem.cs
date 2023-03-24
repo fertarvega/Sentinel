@@ -43,6 +43,8 @@ public class TurnSystem : MonoBehaviour
                     unit.GetResourceTower().GetResourcesAmount();
                 }
             }
+            
+            GetDefaultResources();
             UiList.Instance.txtRound.text = "Wave " + roundCount + "  of  " + totalRounds;
         }
     }
@@ -54,5 +56,13 @@ public class TurnSystem : MonoBehaviour
         }
         UiList.Instance.buttonStartWave.gameObject.SetActive(false);
 
+    }
+
+
+    public void GetDefaultResources(){
+        ResourceSystem.Instance.goldResource += 1;
+        ResourceSystem.Instance.stoneResource += 1;
+        ResourceSystem.Instance.woodResource += 1;
+        ResourceSystem.Instance.crystalResource += 1;
     }
 }
