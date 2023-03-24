@@ -15,7 +15,13 @@ public class OptionsMenu : MonoBehaviour
         }
     }
 
+    public void RestartLevel(){
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+    
     public void ExitScene(){
         SceneManager.LoadScene("MainMenu");
     }
+
+
 }

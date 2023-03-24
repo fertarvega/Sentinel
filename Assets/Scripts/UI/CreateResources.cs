@@ -29,7 +29,7 @@ public class CreateResources : ImageClick
             GridPosition gridPosition = LevelGrid.Instance.GetGridPosition(hit.point);
             if(LevelGrid.Instance.IsValidGridPosition(gridPosition) && !LevelGrid.Instance.HasAnyUnitOnGridPosition(gridPosition)){
                 Vector3 worldPos = LevelGrid.Instance.GetWorldPosition(gridPosition);
-                worldPos = new Vector3(worldPos.x, 0.5f, worldPos.z);
+                worldPos = new Vector3(worldPos.x, 1.5f, worldPos.z);
                 Unit newUnit = Instantiate(unit, worldPos, Quaternion.identity);
                 ShopSystem.Instance.BuyResourceTower();
                 LevelGrid.Instance.AddUnitAtGridPosition(gridPosition, newUnit);
@@ -50,7 +50,7 @@ public class CreateResources : ImageClick
 
                 GridPosition gridPosition = LevelGrid.Instance.GetGridPosition(hit.point);
                 Vector3 worldPos = LevelGrid.Instance.GetWorldPosition(gridPosition);
-                unitHovering.transform.position= new Vector3(worldPos.x, 1, worldPos.z);
+                unitHovering.transform.position= new Vector3(worldPos.x, 2, worldPos.z);
                 GridSystemVisual.Instance.ShowGridPositionList(GridSystemVisual.Instance.GetValidActionGridPositionList());
             }
         } else if(unitHovering && !isHolding) Destroy(unitHovering.gameObject);

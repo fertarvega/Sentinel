@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//To modify the Y in the grid system: you need to change the GetWorldPosition(), UnitResource class, CreateResource class and CreateTowers class.
 public class GridSystem{
     private int width;
     private int height;
@@ -26,7 +27,7 @@ public class GridSystem{
     }
 
     public Vector3 GetWorldPosition(GridPosition gridPosition){
-        return new Vector3(gridPosition.x, 0f, gridPosition.z) * cellSize;
+        return new Vector3(gridPosition.x, .5f, gridPosition.z) * cellSize;
     }
 
     public GridPosition GetGridPosition(Vector3 worldPosition)
