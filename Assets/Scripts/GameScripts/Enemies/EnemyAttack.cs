@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyAttack : MonoBehaviour
 {
     private Animator animator;
-    private int damage = 5;
+    [SerializeField] private int damage = 3;
 
     void Awake(){
         animator = GetComponent<Animator>();

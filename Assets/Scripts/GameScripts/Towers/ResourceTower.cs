@@ -9,6 +9,8 @@ public class ResourceTower : MonoBehaviour
     public int getResourceQuantity = 1;
     
     private void Start(){
+        GridPosition gridPosition = LevelGrid.Instance.GetGridPosition(transform.position);
+        transform.position = LevelGrid.Instance.GetWorldPosition(gridPosition);
         foreach(GridObject obj in LevelGrid.Instance.GetAdjacentGridObjects(GetComponent<Unit>().GetGridPosition())){
             if(obj.HasAnyUnitResource()){
                 resources.Add(obj.GetUnitResource().TypeOfResource);

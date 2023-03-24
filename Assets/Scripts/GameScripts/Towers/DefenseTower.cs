@@ -104,16 +104,16 @@ public class DefenseTower : MonoBehaviour
         if((wizardList[0].type == "Water" && wizardList[1].type == "Fire") || (wizardList[0].type == "Fire" && wizardList[1].type == "Water")){
             hability = ListCombinedHabilities.Instance.listCombinedHabilities[0];
             attackInterval = 1.5f;
-            damage = 40;
+            damage = 25;
             debuff = "Stun";
         } else if((wizardList[0].type == "Water" && wizardList[1].type == "Electro") || (wizardList[0].type == "Electro" && wizardList[1].type == "Water")){
             hability = ListCombinedHabilities.Instance.listCombinedHabilities[1];
             attackInterval = 2.5f;
-            damage = 50;
+            damage = 35;
             debuff = "Slow";
         } else if((wizardList[0].type == "Fire" && wizardList[1].type == "Electro") || (wizardList[0].type == "Electro" && wizardList[1].type == "Fire")){
             hability = ListCombinedHabilities.Instance.listCombinedHabilities[2];
-            attackInterval = 3f;
+            attackInterval = 7f;
             damage = 100;
             debuff = "Burst";
         }

@@ -45,10 +45,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b92302a8566f81e40bf74594235f3f0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 40
+  damage: 20
   range: 6
-  towerHealth: 100
-  attackInterval: 4
+  attackInterval: 3
   hability: {fileID: 4735817586624218379, guid: da5034ca18936d2408b66aed7b196205, type: 3}
   type: Electro
 --- !u!1001 &8063756583114642445
