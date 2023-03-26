@@ -18,7 +18,7 @@ public class TurnSystem : MonoBehaviour
     }
 
     private void Update(){
-        if(LevelGrid.Instance.enemyList.Count == 0){
+        if(LevelGrid.Instance.enemyList.Count == 0 && !UiList.Instance.buttonStartWave.IsActive()){
             UiList.Instance.buttonFinishRound.gameObject.SetActive(true);
         } else {
             UiList.Instance.buttonFinishRound.gameObject.SetActive(false);

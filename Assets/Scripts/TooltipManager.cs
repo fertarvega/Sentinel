@@ -31,17 +31,17 @@ public class TooltipManager : MonoBehaviour
     {
         if (currentTooltip == null)
         {
-            // currentTooltip = Instantiate(tooltipPrefab, transform);
+            currentTooltip = Instantiate(tooltipPrefab, transform);
         }
-        // currentTooltip.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = message;
-        // currentTooltip.SetActive(true);
+        currentTooltip.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = message;
+        currentTooltip.SetActive(true);
     }
 
     public void HideTooltip()
     {
         if (currentTooltip != null)
         {
-            // currentTooltip.SetActive(false);
+            currentTooltip.SetActive(false);
         }
     }
 

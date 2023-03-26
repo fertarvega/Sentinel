@@ -42,8 +42,8 @@ public class Wizard : MonoBehaviour
 
     public void AttackEnemy(Enemy enemy){   
         enemy.Health.TakeDamage(damage);
-
-        ParticleSystem particles = Instantiate(hability, enemy.transform.position, Quaternion.identity);
+        Vector3 enemyPosition = new Vector3(enemy.transform.position.x, enemy.transform.position.y + 0.5f, enemy.transform.position.z);
+        ParticleSystem particles = Instantiate(hability, enemyPosition, Quaternion.identity);
 
         particles.Play();
     }
