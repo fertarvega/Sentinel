@@ -15,24 +15,8 @@ public class ResourceTower : MonoBehaviour
             }
         }
 
-      
-        foreach(string resource in resources){
-            switch(resource){
-                case "Gold":
-                    ResourceSystem.Instance.totalToRecollectGold += 1;
-                    break;
-                case "Stone":
-                    ResourceSystem.Instance.totalToRecollectStone += 1;
-                    break;
-                case "Wood":
-                    ResourceSystem.Instance.totalToRecollectWood += 1;
-                    break;
-                case "Crystal":
-                    ResourceSystem.Instance.totalToRecollectCrystal += 1;
-                    break;
-            }
-         
-        }
+        SumTotalResourcesToCollect();
+        
         // InvokeRepeating("GetResourcesAmount", 0f, 3f); // spawn an enemy every 3 second
     }
 
@@ -57,5 +41,25 @@ public class ResourceTower : MonoBehaviour
 
     public List<string> GetResourcesList(){
         return resources;
+    }
+
+    public void SumTotalResourcesToCollect(){
+        foreach(string resource in resources){
+            switch(resource){
+                case "Gold":
+                    ResourceSystem.Instance.totalToRecollectGold += 1;
+                    break;
+                case "Stone":
+                    ResourceSystem.Instance.totalToRecollectStone += 1;
+                    break;
+                case "Wood":
+                    ResourceSystem.Instance.totalToRecollectWood += 1;
+                    break;
+                case "Crystal":
+                    ResourceSystem.Instance.totalToRecollectCrystal += 1;
+                    break;
+            }
+         
+        }
     }
 }

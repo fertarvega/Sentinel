@@ -43,6 +43,7 @@ public class ShopSystem : MonoBehaviour
             if(ResourceSystem.Instance.goldResource < defenseTowerGoldCost || ResourceSystem.Instance.stoneResource < defenseTowerStoneCost 
             || ResourceSystem.Instance.woodResource < defenseTowerWoodCost) {
                 Debug.Log("limit reached, or resources are not enougth");
+            UiList.Instance.ActivateNotEnoughResources();
                 return false;
             } else {
                 return true;
@@ -59,6 +60,7 @@ public class ShopSystem : MonoBehaviour
         if(ResourceSystem.Instance.goldResource < resourceTowerGoldCost || ResourceSystem.Instance.stoneResource < resourceTowerStoneCost 
         || ResourceSystem.Instance.woodResource < resourceTowerWoodCost || ResourceSystem.Instance.crystalResource < resourceTowerCrystalCost ) {
             Debug.Log("limit reached, or resources are not enougth");
+            UiList.Instance.ActivateNotEnoughResources();
             return false;
         } else {
             return true;
@@ -81,6 +83,7 @@ public class ShopSystem : MonoBehaviour
                 ResourceSystem.Instance.crystalResource < waterWizardCrystalCost
             ) {
                 Debug.Log("limit reached, or resources are not enougth");
+            UiList.Instance.ActivateNotEnoughResources();
                 break;
             }
 
@@ -99,6 +102,7 @@ public class ShopSystem : MonoBehaviour
         if(ResourceSystem.Instance.goldResource < spotTowerDefenseUpgradeGoldCost || 
             ResourceSystem.Instance.crystalResource < spotTowerDefenseUpgradeCrystalCost) {
             Debug.Log("limit reached, or resources are not enougth");
+            UiList.Instance.ActivateNotEnoughResources();
         } else {
             defenseTowerSelected = UnitSelections.Instance.GetDefenseTowerSelected();
 
@@ -121,10 +125,12 @@ public class ShopSystem : MonoBehaviour
             ResourceSystem.Instance.stoneResource < resourceTowerUpgradeStoneCost || 
             ResourceSystem.Instance.crystalResource < resourceTowerCrystalCost) {
             Debug.Log("limit reached, or resources are not enougth");
+            UiList.Instance.ActivateNotEnoughResources();
         } else {
             resourceTowerSelected = UnitSelections.Instance.GetResourceTowerSelected();
 
             resourceTowerSelected.getResourceQuantity = 2;
+            resourceTowerSelected.SumTotalResourcesToCollect();
 
             ResourceSystem.Instance.goldResource -= resourceTowerUpgradeGoldCost;
             ResourceSystem.Instance.woodResource -= resourceTowerUpgradeWoodCost;

@@ -750,7 +750,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health: {fileID: 6103460701453994710}
   target: {fileID: 0}
-  attackInterval: 2
+  attackInterval: 3
 --- !u!114 &5329492887153870140
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -34,6 +34,8 @@ public class TurnSystem : MonoBehaviour
             // UiList.Instance.buttonFinishRound.gameObject.SetActive(false);
             var scene = SceneManager.GetActiveScene().name;
             if(scene == "Level_1"){
+                SceneManager.LoadScene("Level_2");
+            } else if(scene == "Level_2"){
                 SceneManager.LoadScene("MainMenu");
             }
         } else{
@@ -44,7 +46,7 @@ public class TurnSystem : MonoBehaviour
             }
             
             GetDefaultResources();
-            UiList.Instance.txtRound.text = "Wave " + roundCount + "  of  " + totalRounds;
+            UiList.Instance.txtRound.text = "Wave " + roundCount + " of " + totalRounds;
         }
     }
 
