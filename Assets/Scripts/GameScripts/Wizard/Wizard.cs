@@ -42,22 +42,36 @@ public class Wizard : MonoBehaviour
 
     public void AttackEnemy(Enemy enemy){   
         enemy.Health.TakeDamage(damage);
-
-        ParticleSystem particles = Instantiate(hability, enemy.transform.position, Quaternion.identity);
+        Vector3 enemyPosition = new Vector3(enemy.transform.position.x, enemy.transform.position.y + 0.5f, enemy.transform.position.z);
+        ParticleSystem particles = Instantiate(hability, enemyPosition, Quaternion.identity);
 
         particles.Play();
     }
 
     public void CheckEnemies(){
+        float minDistance = Mathf.Infinity;
         foreach (Enemy enemy in LevelGrid.Instance.enemyList){
             float distance = Vector3.Distance(transform.root.position, enemy.transform.position);
-            if (distance <= range){
+            if (distance < minDistance && distance <= range){
                 nearEnemy = enemy;
-                return;
+                minDistance = distance;
             }
         }
-        nearEnemy = null;
+        if (minDistance == Mathf.Infinity){
+            nearEnemy = null;
+        }
     }
+
+    // public void CheckEnemies(){
+    //     foreach (Enemy enemy in LevelGrid.Instance.enemyList){
+    //         float distance = Vector3.Distance(transform.root.position, enemy.transform.position);
+    //         if (distance <= range){
+    //             nearEnemy = enemy;
+    //             return;
+    //         }
+    //     }
+    //     nearEnemy = null;
+    // }
 
     public void DisableAttack(){
         attackEnabled = false;

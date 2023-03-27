@@ -50,23 +50,39 @@ public class DefenseTower : MonoBehaviour
     }
 
     public void AttackEnemy(Enemy enemy){   
-        enemy.Health.TakeDamage(damage);
-        enemy.TakeDebuff(debuff);
-
-        ParticleSystem particles = Instantiate(hability, enemy.transform.position, Quaternion.identity);
-
+        Vector3 enemyPosition = new Vector3(enemy.transform.position.x, enemy.transform.position.y + 0.5f, enemy.transform.position.z);
+        ParticleSystem particles = Instantiate(hability, enemyPosition, Quaternion.identity);
         particles.Play();
+        enemy.TakeDebuff(debuff);
+        enemy.Health.TakeDamage(damage);
     }
 
+    // public void CheckEnemies(){
+    //     foreach (Enemy enemy in LevelGrid.Instance.enemyList){
+    //         float distance = Vector3.Distance(transform.root.position, enemy.transform.position);
+    //         if (distance <= range){
+    //             nearEnemy = enemy;
+    //             return;
+    //         }
+    //     }
+    //     nearEnemy = null;
+    // }
+
     public void CheckEnemies(){
+        float minDistance = Mathf.Infinity;
         foreach (Enemy enemy in LevelGrid.Instance.enemyList){
-            float distance = Vector3.Distance(transform.root.position, enemy.transform.position);
-            if (distance <= range){
-                nearEnemy = enemy;
-                return;
+            if(enemy != null){
+                float distance = Vector3.Distance(transform.root.position, enemy.transform.position);
+                if (distance < minDistance && distance <= range){
+                    nearEnemy = enemy;
+                    minDistance = distance;
+                }
+                if (minDistance == Mathf.Infinity){
+                    nearEnemy = null;
+                }
             }
+
         }
-        nearEnemy = null;
     }
 
     public void ActivateCombinatedAttack(){
@@ -103,13 +119,13 @@ public class DefenseTower : MonoBehaviour
     private void SelectHability(){
         if((wizardList[0].type == "Water" && wizardList[1].type == "Fire") || (wizardList[0].type == "Fire" && wizardList[1].type == "Water")){
             hability = ListCombinedHabilities.Instance.listCombinedHabilities[0];
-            attackInterval = 1.5f;
-            damage = 25;
+            attackInterval = 2.5f;
+            damage = 20;
             debuff = "Stun";
         } else if((wizardList[0].type == "Water" && wizardList[1].type == "Electro") || (wizardList[0].type == "Electro" && wizardList[1].type == "Water")){
             hability = ListCombinedHabilities.Instance.listCombinedHabilities[1];
-            attackInterval = 2.5f;
-            damage = 35;
+            attackInterval = 3.5f;
+            damage = 30;
             debuff = "Slow";
         } else if((wizardList[0].type == "Fire" && wizardList[1].type == "Electro") || (wizardList[0].type == "Electro" && wizardList[1].type == "Fire")){
             hability = ListCombinedHabilities.Instance.listCombinedHabilities[2];
@@ -117,5 +133,9 @@ public class DefenseTower : MonoBehaviour
             damage = 100;
             debuff = "Burst";
         }
+    }
+
+    protected List<SpotWizard> GetWizardsList(){
+        return spotsList;
     }
 }

@@ -9,13 +9,14 @@ public class ResourceTower : MonoBehaviour
     public int getResourceQuantity = 1;
     
     private void Start(){
-        GridPosition gridPosition = LevelGrid.Instance.GetGridPosition(transform.position);
-        transform.position = LevelGrid.Instance.GetWorldPosition(gridPosition);
         foreach(GridObject obj in LevelGrid.Instance.GetAdjacentGridObjects(GetComponent<Unit>().GetGridPosition())){
             if(obj.HasAnyUnitResource()){
                 resources.Add(obj.GetUnitResource().TypeOfResource);
             }
         }
+
+        SumTotalResourcesToCollect();
+        
         // InvokeRepeating("GetResourcesAmount", 0f, 3f); // spawn an enemy every 3 second
     }
 
@@ -35,6 +36,30 @@ public class ResourceTower : MonoBehaviour
                     ResourceSystem.Instance.crystalResource += getResourceQuantity;
                     break;
             }
+        }
+    }
+
+    public List<string> GetResourcesList(){
+        return resources;
+    }
+
+    public void SumTotalResourcesToCollect(){
+        foreach(string resource in resources){
+            switch(resource){
+                case "Gold":
+                    ResourceSystem.Instance.totalToRecollectGold += 1;
+                    break;
+                case "Stone":
+                    ResourceSystem.Instance.totalToRecollectStone += 1;
+                    break;
+                case "Wood":
+                    ResourceSystem.Instance.totalToRecollectWood += 1;
+                    break;
+                case "Crystal":
+                    ResourceSystem.Instance.totalToRecollectCrystal += 1;
+                    break;
+            }
+         
         }
     }
 }

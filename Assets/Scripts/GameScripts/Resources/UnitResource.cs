@@ -13,7 +13,7 @@ public class UnitResource : MonoBehaviour
 
         gridPosition = LevelGrid.Instance.GetGridPosition(transform.position);
         Vector3 worldPos = LevelGrid.Instance.GetWorldPosition(gridPosition);
-        transform.position = new Vector3(worldPos.x, 0, worldPos.z);
+        transform.position = new Vector3(worldPos.x, 1f, worldPos.z);
         LevelGrid.Instance.AddUnitResourceAtGridPosition(gridPosition, this);
     }
 
