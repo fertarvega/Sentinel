@@ -71,14 +71,17 @@ public class DefenseTower : MonoBehaviour
     public void CheckEnemies(){
         float minDistance = Mathf.Infinity;
         foreach (Enemy enemy in LevelGrid.Instance.enemyList){
-            float distance = Vector3.Distance(transform.root.position, enemy.transform.position);
-            if (distance < minDistance && distance <= range){
-                nearEnemy = enemy;
-                minDistance = distance;
+            if(enemy != null){
+                float distance = Vector3.Distance(transform.root.position, enemy.transform.position);
+                if (distance < minDistance && distance <= range){
+                    nearEnemy = enemy;
+                    minDistance = distance;
+                }
+                if (minDistance == Mathf.Infinity){
+                    nearEnemy = null;
+                }
             }
-        }
-        if (minDistance == Mathf.Infinity){
-            nearEnemy = null;
+
         }
     }
 

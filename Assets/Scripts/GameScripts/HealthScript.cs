@@ -33,7 +33,8 @@ public class HealthScript : MonoBehaviour
             HealthBar.SetHealth(health);
         }
         if(!IsCentralTower){
-            if(health <= 0) Destroy(gameObject);
+            if(health <= 0) {
+                Destroy(gameObject);}
         } else {
             if(health <= 0) SceneManager.LoadScene("MainMenu");
         }

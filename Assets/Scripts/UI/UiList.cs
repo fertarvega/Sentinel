@@ -14,7 +14,8 @@ public class UiList : MonoBehaviour
     [SerializeField] public TextMeshProUGUI txtRound;
     [SerializeField] public Button buttonFinishRound;
     [SerializeField] public Button buttonStartWave;
-    [SerializeField] public GameObject tutorialMenu; 
+    [SerializeField] public GameObject tutorialMenu;
+    [SerializeField] public GameObject combinationsMenu;
 
     private void Awake() {
         if (Instance != null){
@@ -37,6 +38,15 @@ public class UiList : MonoBehaviour
             tutorialMenu.SetActive(false);
         } else {
             tutorialMenu.SetActive(true);
+        }
+    }
+
+    public void ActivateAndDeactivateCombinations(){
+        if(combinationsMenu.activeSelf){
+            combinationsMenu.SetActive(false);
+        } else {
+            tutorialMenu.SetActive(false);
+            combinationsMenu.SetActive(true);
         }
     }
 }
