@@ -1005,7 +1005,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health: {fileID: 2031186019, guid: 15df34e1295eb5e46bdfc30636932a85, type: 3}
   target: {fileID: 0}
-  attackInterval: 3
+  attackInterval: 4
 --- !u!114 &-5672232033811427297
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1044,7 +1044,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 807bd9a4e33f62644acc3a160eb9d549, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 80
+  health: 70
   HealthBar: {fileID: 1134361357995708670}
   IsCentralTower: 0
 --- !u!1 &1788547206174894
